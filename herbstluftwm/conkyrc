@@ -46,7 +46,7 @@ TEXT
 ${color1}${font FontAwesome:size=9} \
 ${font profont:size=8}${color0}${cpu}%  \
 ${color1}${font FontAwesome:size=9} \
-${font profont:size=8}${color0}${hwmon 0 temp 1}°C  \
+${font profont:size=8}${color0}${exec sensors | grep -n 'temp1' | sed -n 2p | awk -F'+' '{print $2}' | awk -F' ' '{print $1}'}  \
 ${color1}${font FontAwesome:size=9} \
 ${font profont:size=8}${color0}${mem}/${memmax}  \
 ${color1}${font FontAwesome:size=9} \
