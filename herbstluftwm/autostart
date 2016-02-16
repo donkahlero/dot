@@ -10,7 +10,7 @@ hc emit_hook reload
 
 #Uncomment to set static background color
 #xsetroot -solid '#5A8E3A'
-feh --no-startup-id --bg-scale ~/.config/i3/wallpaper.png
+feh --no-startup-id --bg-scale ~/.config/herbstluftwm/wallpaper.png
 
 # remove all existing keybindings
 hc keyunbind --all
