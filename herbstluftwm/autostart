@@ -16,8 +16,8 @@ hc() {
 
 hc emit_hook reload
 
-# Set the fancy NASA wallpaper on startup as background
-feh --no-startup-id --bg-scale ~/.config/herbstluftwm/wallpaper.png
+# Set a random wallpaper as backround on each startup
+./wallpaper.sh
 
 # Remove the existing keybinds
 hc keyunbind --all
