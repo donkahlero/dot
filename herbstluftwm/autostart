@@ -17,7 +17,7 @@ hc() {
 hc emit_hook reload
 
 # Set a random wallpaper as backround on each startup
-./wallpaper.sh
+~/.config/herbstluftwm/wallpaper.sh
 
 # Remove the existing keybinds
 hc keyunbind --all
