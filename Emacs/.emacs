@@ -21,7 +21,7 @@ version-control t)
 ;Erlang Part.
 ;Requires erlang
 ;Set a load path - needs to be for the current erlang version
-(setq load-path (cons  "/lib/erlang/lib/tools-2.8.2/emacs"
+(setq load-path (cons  "/lib/erlang/lib/tools-2.8.3/emacs"
 load-path))
 (setq erlang-root-dir "/lib/erlang")
 (setq exec-path (cons "/lib/erlang/bin" exec-path))
