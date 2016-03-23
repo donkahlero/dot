@@ -10,14 +10,12 @@ pids+=($!)
 
 sleep 1
 
+# If you want to use the confy script
 conky -c "$panelfolder/conkyrc" &
+
 pids+=($!)
 
 herbstclient --wait '^(quit_panel|reload).*'
 kill -TERM "${pids[@]}" >/dev/null 2>&1
 
-sleep 1
-nm-applet    2>&1 /dev/null &
-stalonetray  2>&1 /dev/null
-killall nm-applet
 exit 0
