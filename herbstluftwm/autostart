@@ -33,15 +33,15 @@ hc keybind $Mod-d spawn rofi -show run
 hc keybind $Mod-c spawn chromium
 #XF86Keys
 hc keybind XF86Search spawn rofi -show run
-hc keybind  XF86AudioRaiseVolume spawn amixer -q set Master 2%+ unmute
-hc keybind  XF86AudioLowerVolume spawn amixer -q set Master 2%- unmute
-hc keybind  XF86AudioMute spawn amixer -q set Master toggle
+hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 2%+ unmute
+hc keybind XF86AudioLowerVolume spawn amixer -q set Master 2%- unmute
+hc keybind XF86AudioMute spawn amixer -q set Master toggle
 hc keybind XF86MonBrightnessUp spawn xbacklight -inc 10
-hc keybind  XF86MonBrightnessDown spawn xbacklight -dec 10
+hc keybind XF86MonBrightnessDown spawn xbacklight -dec 10
 hc keybind XF86Tools spawn nmcli_dmenu
 hc keybind XF86Explorer spawn slock
 hc keybind XF86LaunchA spawn echo "nothing yet"
-hc keybind XF86Display spwan herbstclient detect_monitors
+hc keybind XF86Display spawn herbstclient detect_monitors
 hc keybind XF86AudioMicMute spawn echo "nothing yet"
 
 # Frame and Windows interaction
