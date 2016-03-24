@@ -59,14 +59,38 @@ ${color1}${font FontAwesome:size=9} \
 ${font profont:size=8}${color0}${exec sensors | grep -n 'temp1' | sed -n 2p | awk -F'+' '{print $2}' | awk -F' ' '{print $1}'}  \
 ${color1}${font FontAwesome:size=9} \
 ${font profont:size=8}${color0}${mem}/${memmax}  \
-${color1}${font FontAwesome:size=9} \
-${font profont:size=8}${color0}${battery}  \
-${color1}${font FontAwesome:size=9} \
+${font profont:size=8}${color1}${font FontAwesome:size=9} \
 ${font profont:size=8}${color0}${fs_used_perc /}%  \
 ${color1}${font FontAwesome:size=9} \
 ${font profont:size=8}${color0}${if_up enp0s25}${addrs enp0s25}${else}DOWN${endif}  \
 ${color1}${font FontAwesome:size=9} ${color0} \
 ${font profont:size=8}${if_up wlp4s0}${wireless_essid wlp4s0} [${addrs wlp4s0}]${else}DOWN${endif}  \
+${if_match ${exec acpi -b | grep -oP '(?<=Battery 0: ).'} == "U"}\
+${color1}${font FontAwesome:size=9}\
+${else}\
+${if_match ${exec acpi -b | grep -oP '(?<=Battery 0: ).'} == "C"}\
+${color1}${font FontAwesome:size=9}\
+${else}\
+${if_match ${battery_percent} > 90}\
+${color1}${font FontAwesome:size=9}\
+${else}\
+${if_match ${battery_percent} > 75}\
+${color1}${font FontAwesome:size=9}\
+${else}\
+${if_match ${battery_percent} > 50}\
+${color1}${font FontAwesome:size=9}\
+${else}\
+${if_match ${battery_percent} > 25}\
+${color1}${font FontAwesome:size=9}\
+${else}\
+${color1}${font FontAwesome:size=9}\
+${endif}\
+${endif}\
+${endif}\
+${endif}\
+${endif}\
+${endif}  \
+${font profont:size=8}${color0}${battery_percent BAT0}%  \
 ${color1}${font FontAwesome:size=9} \
 ${color0}${font profont:size=8}${exec amixer get Master | awk -F'[]%[]' '/%/ {if ($7 == "off") { print "Mute" } else { print $2"%" }}'}  \
 ${color1}${font FontAwesome:size=9} \
