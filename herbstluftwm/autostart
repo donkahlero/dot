@@ -33,15 +33,15 @@ hc keybind $Mod-d spawn rofi -show run
 hc keybind $Mod-c spawn chromium
 #XF86Keys
 hc keybind XF86Search spawn rofi -show run
-hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 2%+ unmute
-hc keybind XF86AudioLowerVolume spawn amixer -q set Master 2%- unmute
-hc keybind XF86AudioMute spawn amixer -q set Master toggle
+hc keybind XF86AudioRaiseVolume spawn pamixer -i 1
+hc keybind XF86AudioLowerVolume spawn pamixer -d 1
+hc keybind XF86AudioMute spawn pamixer -t
 hc keybind XF86MonBrightnessUp spawn xbacklight -inc 10
 hc keybind XF86MonBrightnessDown spawn xbacklight -dec 10
 hc keybind XF86Tools spawn nmcli_dmenu
 hc keybind XF86Explorer spawn slock
 hc keybind XF86LaunchA spawn echo "nothing yet"
-hc keybind XF86Display spawn herbstclient detect_monitors
+hc keybind XF86Display spawn xrandr --output LVDS1 --rate 60 --mode 2560x1440 --fb 2560x1440 --panning 2560x1440* --output HDMI1 --mode 2560x1440 --same-as LVDS1
 hc keybind XF86AudioMicMute spawn echo "nothing yet"
 
 # Frame and Windows interaction
@@ -121,20 +121,50 @@ hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
-# theme
+# Blue color theme
+#hc attr theme.tiling.reset 1
+#hc attr theme.floating.reset 1
+#hc set frame_border_active_color '#222222'
+#hc set frame_border_normal_color '#101010'
+#hc set frame_bg_normal_color '#565656'
+#hc set frame_bg_active_color '#15598F'
+#hc set frame_border_width 1
+#hc set always_show_frame 1
+#hc set frame_bg_transparent 1
+#hc set frame_transparent_width 5
+#hc set frame_gap 4
+#hc attr theme.active.color '#009DD8'
+#hc attr theme.normal.color '#454545'
+#hc attr theme.urgent.color orange
+#hc attr theme.inner_width 1
+#hc attr theme.inner_color black
+#hc attr theme.border_width 3
+#hc attr theme.floating.border_width 4
+#hc attr theme.floating.outer_width 1
+#hc attr theme.floating.outer_color black
+#hc attr theme.active.inner_color '#3E4A00'
+#hc attr theme.active.outer_color '#3E4A00'
+#hc attr theme.background_color '#141414'
+#hc set window_gap 0
+#hc set frame_padding 0
+#hc set smart_window_surroundings 0
+#hc set smart_frame_surroundings 1
+#hc set mouse_recenter_gap 0
+
+# lb.theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#101010'
 hc set frame_bg_normal_color '#565656'
-hc set frame_bg_active_color '#15598F'
+hc set frame_bg_active_color '#AA1'
 hc set frame_border_width 1
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 5
 hc set frame_gap 4
 
-hc attr theme.active.color '#009DD8'
+hc attr theme.active.color '#1AA'
 hc attr theme.normal.color '#454545'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 1
