@@ -1,13 +1,26 @@
 #!/bin/bash
-dzen_fg="#D0D0D0"
-dzen_bg="#1C1C1C"
+# Blue color theme
+#dzen_fg="#D0D0D0"
+#dzen_bg="#1C1C1C"
+#normal_fg=""
+#normal_bg=
+#viewed_fg="#000000"
+#viewed_bg="#009DD8"
+#urgent_fg=
+#urgent_bg="#DF8787"
+#used_fg="#009DD8"
+#used_bg=
+
+# lb.theme
+dzen_fg="#1AA"
+dzen_bg="#333"
 normal_fg=""
 normal_bg=
-viewed_fg="#000000"
-viewed_bg="#009DD8"
+viewed_fg="#333"
+viewed_bg="#1AA"
 urgent_fg=
-urgent_bg="#DF8787"
-used_fg="#009DD8"
+urgent_bg="#F99"
+used_fg="#AA1"
 used_bg=
 
 herbstclient --idle 2>/dev/null | {
