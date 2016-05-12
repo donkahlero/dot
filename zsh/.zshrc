@@ -14,3 +14,8 @@ compinit
 
 autoload -U colors && colors
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}$ "
+
+PATH=$PATH:/opt/od/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/od/lib
+
+eval "$(thefuck --alias)"
