@@ -1,5 +1,6 @@
 ;This is the TacoEmacs for ArchLinux
 ;------------------------------------------------------------------
+(load-file "~/.emacs.d/emacs_toolchain")
 
 ;Backup Config
 ;Store Backup files in a folder .emacs.d/save in the home directory
@@ -21,17 +22,16 @@ version-control t)
 ;Erlang Part.
 ;Requires erlang
 ;Set a load path - needs to be for the current erlang version
-(setq load-path (cons  "/lib/erlang/lib/tools-2.8.3/emacs"
-load-path))
+(if (= erlang 1)
+((setq load-path (cons  "/lib/erlang/lib/tools-2.8.3/emacs" load-path))
 (setq erlang-root-dir "/lib/erlang")
 (setq exec-path (cons "/lib/erlang/bin" exec-path))
 (require 'erlang-start)
 (require 'erlang-flymake)
-(setq erlang-electric-commands '())
+(setq erlang-electric-commands '())) "Erlang disabled")
 
 ;LaTeX
 ;Requires texlive-most texlive-bin auctex
-;(add-to-list 'exec-path "/Library/TeX/texbin")
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
 (setq TeX-auto-save t)

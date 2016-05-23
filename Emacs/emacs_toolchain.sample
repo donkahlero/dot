@@ -1,0 +1,3 @@
+(defvar whitespace 0)
+(defvar erlang 0)
+(defvar latex 0)
