@@ -40,3 +40,6 @@ set editor = "emacs -nw"
 bind index G imap-fetch-mail
 
 auto_view text/html
+
+# Source one of those files:
+# https://github.com/altercation/mutt-colors-solarized
