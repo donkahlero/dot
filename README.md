@@ -19,6 +19,23 @@ The following packets (!!!be careful: ArchLinux names!!!) need to be installed t
 herbstluftwm dzen2 conky rxvt-unicode zsh rofi pulseaudio pamixer emacs-nox mutt textlive-most networkmanager-dmenu-git xorg-xrandr
 ```
 
+## herbstluftwm
+Just symlink the the repo folder inside your ~/.config/ folder and everything should work.
+```zsh
+ln -s GITHUB/CLONE/DIR/herbstluftwm ~/.config/herbstluftwm
+```
+#### Files & their location
+##### autostart
+Just the regular autostart file. Every herbstuftwm installation needs that one.
+##### panel.sh/tags.sh
+Responsible for the left part of the status bar. The dzen2 part. Is just drawing the different page tags.
+##### conkyrc
+Responsible for the right part of the status bar. The conky part. Draws the different statuses, like temperature and cpu usage.
+##### volume.sh
+Reads out the volume from pamixer. Prints mute when audio muted.
+##### wallpaper.sh
+Selects a RANDOM image from the ~/.config/herbstluftwm/wallpaper directory each wm start and sets it as the desktop background.
+
 ## Emacs
 Yezzzzz - I love Emacs. Don't hate.
 
@@ -32,4 +49,3 @@ It is important that you either copy the toolchain.sample as plain toolchain to 
 cp GITHUB/CLONE/DIR/Emacs/emacs_toolchain.sample ~/.emacs.d/emacs_toolchain
 ```
 Then define the installed parts. For example: if you don't have any erlang packet installed set the variable to 0
-
