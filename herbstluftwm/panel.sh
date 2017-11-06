@@ -2,7 +2,7 @@
 [[ $0 == /* ]] && script="$0" || script="${PWD}/${0#./}"
 panelfolder=${script%/*}
 trap 'herbstclient emit_hook quit_panel' TERM
-herbstclient pad 0 32
+herbstclient pad 0 16
 herbstclient emit_hook quit_panel
 
 "$panelfolder/tags.sh" &
@@ -14,6 +14,10 @@ sleep 1
 conky -c "$panelfolder/conkyrc" &
 
 pids+=($!)
+
+# Start stalonetray and nm-applet
+stalonetray &
+nm-applet &
 
 herbstclient --wait '^(quit_panel|reload).*'
 kill -TERM "${pids[@]}" >/dev/null 2>&1
