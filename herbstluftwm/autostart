@@ -16,6 +16,8 @@ hc() {
 
 hc emit_hook reload
 
+xrandr --dpi 168 &
+
 # Set a random wallpaper as backround on each startup
 ~/.config/herbstluftwm/wallpaper.sh
 
@@ -25,19 +27,31 @@ hc keyunbind --all
 # Keybinds
 # Win key as MOD
 Mod=Mod4
+hc keybind $Mod-d spawn dmenu_run
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
+hc keybind $Mod-l spawn slock
 hc keybind $Mod-Return spawn urxvt #${TERMINAL:-xterm} # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-d spawn rofi -show run
-hc keybind $Mod-c spawn chromium
+#hc keybind $Mod-d spawn rofi -show run
+hc keybind $Mod-c spawn firefox
+hc keybind $Mod-v spawn /opt/forticlient-sslvpn/forticlientsslvpn.sh
 #XF86Keys
 hc keybind XF86Search spawn rofi -show run
-hc keybind XF86AudioRaiseVolume spawn pamixer -i 1
-hc keybind XF86AudioLowerVolume spawn pamixer -d 1
-hc keybind XF86AudioMute spawn pamixer -t
-hc keybind XF86MonBrightnessUp spawn xbacklight -inc 10
-hc keybind XF86MonBrightnessDown spawn xbacklight -dec 10
+
+# PULSE
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +2%
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -2%
+hc keybind XF86AudioMute spawn pactl set-sink-mute 0 toggle
+# ALSA
+#hc keybind XF86AudioRaiseVolume spawn amixer set Master 5%+
+#hc keybind XF86AudioLowerVolume spawn amixer set Master 5%-
+#hc keybind XF86AudioMute spawn amixer set Master 1+ toggle
+
+# Screen brightness
+hc keybind XF86MonBrightnessUp spawn ~/.config/herbstluftwm/xrandr.sh +
+hc keybind XF86MonBrightnessDown spawn ~/.config/herbstluftwm/xrandr.sh -
+
 hc keybind XF86Tools spawn nmcli_dmenu
 hc keybind XF86Explorer spawn slock
 hc keybind XF86LaunchA spawn echo "nothing yet"
@@ -204,10 +218,4 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # or simply:
 hc detect_monitors
 
-# find the panel
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" $monitor &
-done
+~/.config/herbstluftwm/panel.sh
