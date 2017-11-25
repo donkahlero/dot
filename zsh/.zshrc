@@ -21,16 +21,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/od/lib
 eval "$(thefuck --alias)"
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias cd.='cd .'
-alias cd..='cd ..'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
-alias ls='ls --color=auto'
-alias prettyjson='python -m json.tool'
 alias einsLive='mplayer https://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3'
 
 . ~/.work_aliases
