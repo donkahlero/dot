@@ -20,7 +20,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/od/lib
 
 eval "$(thefuck --alias)"
 
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias einsLive='mplayer https://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3'
+alias 1live='mplayer https://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3'
+alias hr1='mplayer http://hr-hr1-live.cast.addradio.de/hr/hr1/live/mp3/128/stream.mp3'
 
 . ~/.work_aliases
