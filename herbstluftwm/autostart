@@ -48,6 +48,9 @@ hc keybind XF86AudioMute spawn pactl set-sink-mute 0 toggle
 #hc keybind XF86AudioLowerVolume spawn amixer set Master 5%-
 #hc keybind XF86AudioMute spawn amixer set Master 1+ toggle
 
+# New wallpaper
+hc keybind $Mod-w spawn ~/.config/herbstluftwm/wallpaper.sh
+
 # Screen brightness
 hc keybind XF86MonBrightnessUp spawn ~/.config/herbstluftwm/xrandr.sh +
 hc keybind XF86MonBrightnessDown spawn ~/.config/herbstluftwm/xrandr.sh -
