@@ -1,46 +1,49 @@
 ! Font and font size
-URxvt*font: xft:Bitstream Vera Sans Mono:size=10:antialias=true
+URxvt*font: xft:SourceCodePro-Medium:size=6:antialias=true
 URxvt*letterSpace: -1
-URxvt*lineSpace: -10
+URxvt*lineSpace: -1
 
 ! URxvt UI
 URxvt*scrollBar: false
 URxvt*transparent: false
 URxvt.cursorBlink: true
 
-! Colors
-*.foreground:   #c2c2b0
-*.background:   #222222
-*.cursorColor:  #c2c2b0
-! black
-*.color0:       #222222
-*.color8:       #272822
-! red
-*.color1:       #aa4450
-*.color9:       #ff6a6a
-! green
-*.color2:       #719611
-*.color10:      #b1d631
-! yellow
-!*.color3:      #cc8800
-*.color3:       #ff9800
-*.color11:      #87875f
-! blue
-*.color4:       #6688aa
-*.color12:      #90b0d1
-! magenta
-*.color5:       #8f6f8f
-*.color13:      #8181a6
-! cyan
-*.color6:       #528b8b
-*.color14:      #87ceeb
-! white
-*.color7:       #d3d3d3
-*.color15:      #c1cdc1
+! special
+*.foreground:   #f0f0f0
+*.background:   #1d1e20
+*.cursorColor:  #f0f0f0
 
-URxvt.colorIT:  #719611
-URxvt.colorBD:  #d3d3d3
-URxvt.colorUL:  #528b8b
+! black
+*.color0:       #1f1f20
+*.color8:       #5c6370
+
+! red
+*.color1:       #fb055a
+*.color9:       #fb055a
+
+! green
+*.color2:       #26ffd4
+*.color10:      #26ffd4
+
+! yellow
+*.color3:       #fdaa5a
+*.color11:      #febe7e
+
+! blue
+*.color4:       #5c9fff
+*.color12:      #55adff
+
+! magenta
+*.color5:       #fc59a6
+*.color13:      #fd95d0
+
+! cyan
+*.color6:       #26ffd4
+*.color14:      #26ffd4
+
+! white
+*.color7:       #f0f0f0
+*.color15:      #f0f0f0
 
 URxvt.perl-ext-common: default,clipboard,keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
@@ -52,7 +55,6 @@ URxvt.clipboard.pastecmd: xsel -ob
 
 URxvt.saveLines: 9999
 URxvt.iso14755: false
-!URxvt*altSendsEscape: true
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
