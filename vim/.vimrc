@@ -11,6 +11,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " Enable red line after 80th column
 highlight ColorColumn ctermbg=red
 set colorcolumn=81
+
 " Enable line numbers
 set number
 
@@ -23,22 +24,36 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mhinz/vim-startify'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'justincampbell/vim-eighties'
 Plugin 'WolfgangMehner/c-support'
 Plugin 'vim-syntastic/syntastic'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Plugin Settings
+" Solarized
+syntax enable
+set background=dark
+colorscheme solarized
+
 " NERDTree
 autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"Ailrine"
-let g:airline_theme='angr'
-let g:airline#extensions#tabline#enabled = 1
+autocmd bufenter * if (winnr("$") == 1
+			\ && exists("b:NERDTree")
+			\ && b:NERDTree.isTabTree()) | q | endif
+
+" Airline"
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts = 1
+
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
