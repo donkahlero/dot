@@ -11,14 +11,17 @@ URxvt*scrollBar: false
 URxvt*transparent: false
 URxvt.cursorBlink: true
 
-URxvt.perl-ext-common: default,clipboard,keyboard-select
+URxvt.perl-ext-common: default,clipboard,keyboard-select,tabbed
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
 URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:  xsel -ib
 URxvt.clipboard.pastecmd: xsel -ob
-
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 4
+URxvt.tabbed.tab-bg: 2
 URxvt.saveLines: 9999
 URxvt.iso14755: false
 
