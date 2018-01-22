@@ -1,5 +1,8 @@
 ! Font and font size
-URxvt*font: xft:SourceCodePro-Medium:size=6:antialias=true
+URxvt*font: xft:SourceCodeProForPowerline:pixelsize=14
+URxvt*boldFont: xft:SourceCodeProForPowerline-Bold:pixelsize=14
+URxvt*italicFont: xft:SourceCodeProForPowerline-Italic:pixelsize=14
+URxvt*boldItalicFont: xft:SourceCodeProForPowerline-BoldItalic:pixelsize=14
 URxvt*letterSpace: -1
 URxvt*lineSpace: -1
 
@@ -7,43 +10,6 @@ URxvt*lineSpace: -1
 URxvt*scrollBar: false
 URxvt*transparent: false
 URxvt.cursorBlink: true
-
-! special
-*.foreground:   #f0f0f0
-*.background:   #1d1e20
-*.cursorColor:  #f0f0f0
-
-! black
-*.color0:       #1f1f20
-*.color8:       #5c6370
-
-! red
-*.color1:       #fb055a
-*.color9:       #fb055a
-
-! green
-*.color2:       #26ffd4
-*.color10:      #26ffd4
-
-! yellow
-*.color3:       #fdaa5a
-*.color11:      #febe7e
-
-! blue
-*.color4:       #5c9fff
-*.color12:      #55adff
-
-! magenta
-*.color5:       #fc59a6
-*.color13:      #fd95d0
-
-! cyan
-*.color6:       #26ffd4
-*.color14:      #26ffd4
-
-! white
-*.color7:       #f0f0f0
-*.color15:      #f0f0f0
 
 URxvt.perl-ext-common: default,clipboard,keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
@@ -71,3 +37,53 @@ rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#3
 rofi.color-window:                   argb:ee333333, #1aa,#1aa
 ! Separator style (none, dash, solid)
 rofi.separator-style:                dash
+
+!-------------------------------------------------------------------------------
+! Solarized color scheme for the X Window System
+!
+! http://ethanschoonover.com/solarized
+!-------------------------------------------------------------------------------
+! Common
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+! Dark
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+
+*background:              S_base03
+*foreground:              S_base0
+*fading:                  40
+*fadeColor:               S_base03
+*cursorColor:             S_base1
+*pointerColorBackground:  S_base01
+*pointerColorForeground:  S_base1
+
+*color0:                  S_base02
+*color1:                  S_red
+*color2:                  S_green
+*color3:                  S_yellow
+*color4:                  S_blue
+*color5:                  S_magenta
+*color6:                  S_cyan
+*color7:                  S_base2
+*color9:                  S_orange
+*color8:                  S_base03
+*color10:                 S_base01
+*color11:                 S_base00
+*color12:                 S_base0
+*color13:                 S_violet
+*color14:                 S_base1
+*color15:                 S_base3
