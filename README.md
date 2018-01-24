@@ -1,29 +1,23 @@
+![Uuuhhh Godfather](https://vignette.wikia.nocookie.net/villains/images/a/a5/20160918e1365.jpg/revision/latest?cb=20171016210905)
 # TacoDot
 This repo fullfills two purposes:
 * Of course this is my personal backup - if something happens to my precious ;)
 * For everyboy who likes my setup and wants to use it him/herself
-Every important part of this repo will is explained further down.
 
-#### Quick Info
-* Computer: Lenovo Thinkpad X1 Carbon
+All of the provided config files are obviously easiest to use by just symlinking at their correct spot.
+
+#### Computers that use this configuration
+* TUXEDO Book - Ubuntu 16.04
+* MacBook Mid '15 - macOS 10.13 (for urxvt)
+
+#### What am I running?
 * Window Manager: herbstluftwm
 * Audio: PulseAudio
-* Editor: Emacs
-* Shell: Zsh
+* Main Editor: vim
+* Shell: zshell
 * T-Emu: rxvt-unicode
-* eMail: mutt
+* eMail Client: mutt
 
-## Installed packets
-The following packets (!!!be careful: ArchLinux names!!!) need to be installed to make this stuff work:
-```archpackets
-herbstluftwm dzen2 conky rxvt-unicode zsh rofi pulseaudio pamixer emacs-nox mutt textlive-most networkmanager-dmenu-git xorg-xrandr
-```
-
-## herbstluftwm
-Just symlink the the repo folder inside your ~/.config/ folder and everything should work.
-```zsh
-ln -s GITHUB/CLONE/DIR/herbstluftwm ~/.config/herbstluftwm
-```
 #### Files & their location
 ##### autostart
 Just the regular autostart file. Every herbstuftwm installation needs that one.
@@ -35,3 +29,5 @@ Responsible for the right part of the status bar. The conky part. Draws the diff
 Reads out the volume from pamixer. Prints mute when audio muted.
 ##### wallpaper.sh
 Selects a RANDOM image from the ~/.config/herbstluftwm/wallpaper directory each wm start and sets it as the desktop background.
+
+Have fun!
