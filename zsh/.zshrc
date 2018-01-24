@@ -12,6 +12,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+export EDITOR=vim
+
+export TERM=rxvt-unicode
+
 autoload -U colors && colors
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}$ "
 

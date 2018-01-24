@@ -1,3 +1,6 @@
+! Term
+URxvt*termName: xterm-256color
+
 ! Font and font size
 URxvt*font: xft:SourceCodeProForPowerline:pixelsize=14
 URxvt*boldFont: xft:SourceCodeProForPowerline-Bold:pixelsize=14
