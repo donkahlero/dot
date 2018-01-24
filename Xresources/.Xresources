@@ -1,5 +1,5 @@
 ! Term
-URxvt*termName: xterm-256color
+URxvt*termName: rxvt-unicode
 
 ! Font and font size
 URxvt*font: xft:SourceCodeProForPowerline:pixelsize=14
