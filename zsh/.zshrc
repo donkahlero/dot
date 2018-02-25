@@ -15,8 +15,6 @@ compinit
 autoload -U colors && colors
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}$ "
 
-PATH=$PATH:/opt/od/bin
-
 eval "$(thefuck --alias)"
 
 alias 1live='mplayer https://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3'
