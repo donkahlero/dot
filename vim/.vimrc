@@ -16,12 +16,12 @@ set colorcolumn=81
 set number
 
 " Tabs and such
-set tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
+" https://stackoverflow.com/a/1878983/3996454
+set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
 
-" For ...Python...
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" For C
+" https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
 " Vundle Plugin Manager Section
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -64,6 +64,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_c_include_dirs = [ '../include', 'include', '../*' ]
