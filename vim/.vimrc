@@ -15,13 +15,19 @@ set colorcolumn=81
 " Enable line numbers
 set number
 
+" Fun with the mouse and xterm
+set mouse=a
+
 " Tabs and such
 " https://stackoverflow.com/a/1878983/3996454
 set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
-
 " For C
 " https://www.kernel.org/doc/html/v4.10/process/coding-style.html
 autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
+
+" Do not clutter my precious folders
+set swapfile
+set dir=/tmp
 
 " Vundle Plugin Manager Section
 set rtp+=~/.vim/bundle/Vundle.vim
