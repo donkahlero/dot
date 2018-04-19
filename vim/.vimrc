@@ -32,10 +32,7 @@ set dir=/tmp
 " Vundle Plugin Manager Section
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'mhinz/vim-startify'
-Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
@@ -50,18 +47,9 @@ filetype plugin indent on    " required
 " Plugin Settings
 " Solarized
 syntax enable
-set background=dark
-colorscheme solarized
-
-" NERDTree
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1
-			\ && exists("b:NERDTree")
-			\ && b:NERDTree.isTabTree()) | q | endif
 
 " Airline"
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
 " syntastic
