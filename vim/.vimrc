@@ -18,6 +18,14 @@ set number
 " Fun with the mouse and xterm
 set mouse=a
 
+" Autocompletion on the menu
+set wildmode=longest,list,full
+set wildmenu
+
+" (Navigation) Tabs
+map <A-Left> gT
+map <A-Right> gt
+
 " Tabs and such
 " https://stackoverflow.com/a/1878983/3996454
 set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
@@ -33,7 +41,6 @@ set dir=/tmp
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'mhinz/vim-startify'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
