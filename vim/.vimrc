@@ -48,6 +48,7 @@ Plugin 'justincampbell/vim-eighties'
 Plugin 'WolfgangMehner/c-support'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'fatih/vim-go'
+Plugin 'ervandew/supertab'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
