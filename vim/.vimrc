@@ -15,6 +15,14 @@ set colorcolumn=81
 " Enable line numbers
 set number
 
+" Enable CursorLine
+set cursorline
+highlight CursorLine cterm=NONE ctermbg=8 guibg=8
+
+" Enable CursorColumn
+set cursorcolumn
+highlight CursorColumn cterm=NONE ctermbg=8 guibg=8
+
 " Fun with the mouse and xterm
 set mouse=a
 
