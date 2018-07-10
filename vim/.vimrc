@@ -37,9 +37,6 @@ map <A-Right> gt
 " Tabs and such
 " https://stackoverflow.com/a/1878983/3996454
 set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
-" For C
-" https://www.kernel.org/doc/html/v4.10/process/coding-style.html
-autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
 " Do not clutter my precious folders
 set swapfile
@@ -52,11 +49,14 @@ Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'justincampbell/vim-eighties'
 Plugin 'WolfgangMehner/c-support'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
+Plugin 'takac/vim-spotifysearch'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -68,6 +68,9 @@ syntax enable
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -76,4 +79,12 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+" Language Specific Options
+" C
+" https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 let g:syntastic_c_include_dirs = [ '../include', 'include', '../*' ]
+
+" Go - Requires https://github.com/fatih/vim-go
+autocmd BufWrite * if &ft!~?'go'|:call GoImports()|endif
