@@ -1,5 +1,6 @@
 " ALL VIM OPTIONS (SEE options.txt)
 " ==============================================================================
+
 " A
 " ==============================================================================
 set aleph=224
@@ -14,11 +15,11 @@ set autoindent
 set noautoread
 set noautowrite
 set noautowriteall
-" ==============================================================================
+
 " B
 " ==============================================================================
-" set background=dark " causes rendering issues ATM.
-" set backspace=""
+" set background=dark " TODO causes rendering issues ATM.
+set backspace& " We keep default for now
 set backup
 set backupcopy=auto
 set backupdir=/tmp
@@ -37,7 +38,7 @@ set browsedir=last
 set bufhidden=
 set buflisted
 set buftype=
-" ==============================================================================
+
 " C
 " ==============================================================================
 set casemap=internal,keepascii
@@ -76,51 +77,46 @@ set nocursorbind
 set cursorcolumn
 set cursorline
 
-" UTF-8 is da shit
+set dir=/tmp
 set encoding=utf-8
-
-" Syntax highlighting
-syntax enable
-
-" Show trailing whitepace and spaces before a tab and remove on save
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
-autocmd BufWritePre * %s/\s\+$//e
-
-" Enable red line after 80th column
-highlight ColorColumn ctermbg=red
-
-" Enable line numbers
-set number
-
-" Enable CursorLine
-highlight CursorLine cterm=NONE ctermbg=8 guibg=8
-
-" Enable CursorColumn
-highlight CursorColumn cterm=NONE ctermbg=8 guibg=8
-
-" Fun with the mouse and xterm
 set mouse=a
-
-" Autocompletion on the menu
+set number
+set swapfile
 set wildmode=longest,list,full
 set wildmenu
 
-" (Navigation) Tabs
-map <A-Left> gT
-map <A-Right> gt
 
-" (Indent) Tabs
-" https://stackoverflow.com/a/1878983/3996454
+" HIGHLIGHTING
+" ==============================================================================
+syntax enable
+" red line after 80th column
+highlight ColorColumn ctermbg=red
+" trailing whitepace and spaces before a tab
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+" cursor
+highlight CursorLine cterm=NONE ctermbg=8 guibg=8
+highlight CursorColumn cterm=NONE ctermbg=8 guibg=8
+
+
+" MISC SETTINGS
+" ==============================================================================
+" remove whitespaces
+autocmd BufWritePre * %s/\s\+$//e
+" tabs (separate for c, so we make sure to follow the holy linx coding style)
 set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
-" https://www.kernel.org/doc/html/v4.10/process/coding-style.html
 autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
-" Do not clutter my precious folders
-set swapfile
-set dir=/tmp
+
+" MAPPINGS
+" ==============================================================================
+map <A-Left> gT
+map <A-Right> gt
+map <C-n> :NERDTreeToggle<CR>
+
 
 " Vundle Plugin Manager Section
+" ==============================================================================
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'mhinz/vim-startify'
@@ -136,9 +132,9 @@ Plugin 'fatih/vim-go'
 call vundle#end()
 filetype plugin indent on
 
+
 " vim-airline
 " ==============================================================================
-" OPTIONS
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline_detect_crypt = 1
@@ -150,9 +146,9 @@ let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 let g:airline_symbols_ascii = 0
 
+
 " NERDTree
 " ==============================================================================
-" OPTIONS
 " let g:loaded_nerd_tree = 0
 let g:NERDTreeAutoCenter = 1
 let g:NERDTreeAutoCenterThreshold = 5
@@ -181,13 +177,10 @@ let g:NERDTreeCascadeSingleChildDir = 0
 let g:NERDTreeCascadeOpenSingleChildDir = 0
 let g:NERDTreeAutoDeleteBuffer = 0
 let g:NERDTreeCreatePrefix = "silent"
-" ==============================================================================
-" KEY MAPPINGS
-map <C-n> :NERDTreeToggle<CR>
+
 
 " syntastic
 " ==============================================================================
-" OPTIONS
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
@@ -217,8 +210,7 @@ let g:syntastic_stl_format = "[Syntax: line:%F (%t)]"
 let g:syntastic_nested_autocommands = 0
 let g:syntastic_debug = 0
 let g:syntastic_extra_filetypes = []
-" ==============================================================================
-" CHECKERS & LANG OPTIONS
+" checkers & lang options
 let g:syntastic_c_include_dirs = [ '../include', 'include', '../*' ]
 let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
 let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
@@ -262,7 +254,6 @@ let g:Xterm_Options = ''
 
 " vim-go - http://github.com/fatih/vim-go
 " ==============================================================================
-" SETTINGS
 let g:go_test_show_name = 1
 let g:go_test_timeout= '5s'
 let g:go_play_browser_command = 'firefox %URL% &'
@@ -321,8 +312,6 @@ let g:go_echo_go_info = 1
 let g:go_statusline_duration = 60000
 let g:go_addtags_transform = 'snakecase'
 let g:go_debug = []
-" ==============================================================================
-" SYNTAX HIGHLIGHTING
 let g:go_fold_enable = []
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_chan_whitespace_error = 1
