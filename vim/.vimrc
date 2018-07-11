@@ -64,9 +64,19 @@ call vundle#end()
 filetype plugin indent on
 
 
-" Airline"
+" vim-airline
+" ==============================================================================
+" CONFIGURATION
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+let g:airline_detect_crypt = 1
+let g:airline_detect_spell = 1
+let g:airline_detect_spelllang = 1
+let g:airline_detect_iminsert = 0
+let g:airline_inactive_collapse=1
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
+let g:airline_symbols_ascii = 0
 
 " NERDTree
 " ==============================================================================
@@ -127,9 +137,9 @@ let g:syntastic_loc_list_height = 10
 let g:syntastic_ignore_files = []
 let g:syntastic_filetype_map = {}
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": ["c", "go"],
-    \ "passive_filetypes": [] }
+            \ "mode": "active",
+            \ "active_filetypes": ["c", "go"],
+            \ "passive_filetypes": [] }
 let g:syntastic_quiet_messages = {}
 let g:syntastic_stl_format = "[Syntax: line:%F (%t)]"
 let g:syntastic_nested_autocommands = 0
@@ -188,8 +198,8 @@ let g:go_list_autoclose = 1
 let g:go_asmfmt_autosave = 0
 let g:go_alternate_mode = "edit"
 let g:go_gorename_prefill = 'expand("<cword>") =~# "^[A-Z]"' .
-          \ '? go#util#pascalcase(expand("<cword>"))' .
-          \ ': go#util#camelcase(expand("<cword>"))'
+            \ '? go#util#pascalcase(expand("<cword>"))' .
+            \ ': go#util#camelcase(expand("<cword>"))'
 let g:go_gocode_autobuild = 1
 let g:go_gocode_propose_builtins = 1
 let g:go_gocode_unimported_packages = 0
