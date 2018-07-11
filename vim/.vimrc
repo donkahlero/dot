@@ -1,11 +1,9 @@
-"UTF-8 is da shit
+" UTF-8 is da shit
 set encoding=utf-8
 
-" Show trailing whitepace and spaces before a tab:
+" Show trailing whitepace and spaces before a tab and remove on save
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
-
-" Or even automatically remove that schtick:
 autocmd BufWritePre * %s/\s\+$//e
 
 " Enable red line after 80th column
@@ -34,9 +32,11 @@ set wildmenu
 map <A-Left> gT
 map <A-Right> gt
 
-" Tabs and such
+" (Indent) Tabs
 " https://stackoverflow.com/a/1878983/3996454
 set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
+" https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
 " Do not clutter my precious folders
 set swapfile
@@ -72,22 +72,43 @@ let g:airline_powerline_fonts = 1
 map <C-n> :NERDTreeToggle<CR>
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
+" ==============================================================================
+" OPTIONS
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_id_checkers = 1
+let g:syntastic_sort_aggregated_errors = 0
+let g:syntastic_echo_current_error = 1
+let g:syntastic_cursor_column = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = ">>"
+let g:syntastic_style_error_symbol = "S>"
+let g:syntastic_warning_symbol = ">>"
+let g:syntastic_style_warning_symbol = "S>"
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_jump = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 10
+let g:syntastic_ignore_files = []
+let g:syntastic_filetype_map = {}
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["c", "go"],
+    \ "passive_filetypes": [] }
+let g:syntastic_quiet_messages = {}
+let g:syntastic_stl_format = "[Syntax: line:%F (%t)]"
+let g:syntastic_nested_autocommands = 0
+let g:syntastic_debug = 0
+let g:syntastic_extra_filetypes = []
+" ==============================================================================
+" CHECKERS & LANG OPTIONS
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../*' ]
 let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
 let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:syntastic_c_include_dirs = [ '../include', 'include', '../*' ]
-
-" Language Specific Options
-" C
-" https://www.kernel.org/doc/html/v4.10/process/coding-style.html
-autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
 " vim-go - http://github.com/fatih/vim-go
 " ==============================================================================
@@ -128,7 +149,7 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_disabled = []
 let g:go_metalinter_command = ""
 let g:go_metalinter_deadline = "10s"
-let g:go_list_height = 15
+let g:go_list_height = 10
 let g:go_list_type = ""
 let g:go_list_type_commands = {}
 let g:go_list_autoclose = 1
