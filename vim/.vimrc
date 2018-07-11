@@ -1,3 +1,81 @@
+" ALL VIM OPTIONS (SEE options.txt)
+" ==============================================================================
+" A
+" ==============================================================================
+set aleph=224
+set noallowrevins
+set noaltkeymap
+set ambiwidth=single
+set noantialias
+set noautochdir
+set noarabic
+set arabicshape
+set autoindent
+set noautoread
+set noautowrite
+set noautowriteall
+" ==============================================================================
+" B
+" ==============================================================================
+" set background=dark " causes rendering issues ATM.
+" set backspace=""
+set backup
+set backupcopy=auto
+set backupdir=/tmp
+set backupext=~
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set balloondelay=600
+set noballooneval
+set balloonexpr=
+set belloff=all
+set nobinary
+set nobomb
+set breakat=\ ^I!@*-+;:,./?
+set nobreakindent
+set breakindentopt=
+set browsedir=last
+set bufhidden=
+set buflisted
+set buftype=
+" ==============================================================================
+" C
+" ==============================================================================
+set casemap=internal,keepascii
+set cdpath=$CDPATH
+set cedit=<C-F>
+set charconvert=
+set nocindent " TODO ENABLE LATER
+set cinkeys=0{,0},0),:,0#,!^F,o,O,e
+set cinoptions=
+set cinwords=if,else,while,do,for,switch
+set clipboard=autoselect,exclude:cons\|linux " TODO IMPROVE LATER
+set cmdheight=1
+set cmdwinheight=7
+set colorcolumn=81
+" set columns=80 " ENABLE WHEN NECESSARY
+set comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+set commentstring=/*%s*/
+set compatible& " Keep default. Do nothing here. Will interefere with below.
+set complete=.,w,b,u,t,i
+set completefunc=
+set completeopt=menu,preview
+set concealcursor=
+set conceallevel=0
+set confirm
+set nocopyindent
+set cpoptions=aABceFs
+set cryptmethod=zip
+set cscopepathcomp=0
+set cscopeprg=cscope
+set cscopequickfix=
+set nocscoperelative
+set nocscopetag
+set cscopetagorder=0
+set nocscopeverbose
+set nocursorbind
+set cursorcolumn
+set cursorline
+
 " UTF-8 is da shit
 set encoding=utf-8
 
@@ -11,17 +89,14 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Enable red line after 80th column
 highlight ColorColumn ctermbg=red
-set colorcolumn=81
 
 " Enable line numbers
 set number
 
 " Enable CursorLine
-set cursorline
 highlight CursorLine cterm=NONE ctermbg=8 guibg=8
 
 " Enable CursorColumn
-set cursorcolumn
 highlight CursorColumn cterm=NONE ctermbg=8 guibg=8
 
 " Fun with the mouse and xterm
