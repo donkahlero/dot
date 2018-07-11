@@ -1,6 +1,9 @@
 " UTF-8 is da shit
 set encoding=utf-8
 
+" Syntax highlighting
+syntax enable
+
 " Show trailing whitepace and spaces before a tab and remove on save
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
@@ -57,18 +60,47 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
 Plugin 'takac/vim-spotifysearch'
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
-" Plugin Settings
-" Solarized
-syntax enable
 
 " Airline"
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
 " NERDTree
+" ==============================================================================
+" OPTIONS
+let g:loaded_nerd_tree = 0
+let g:NERDTreeAutoCenter = 1
+let g:NERDTreeAutoCenterThreshold = 5
+let g:NERDTreeCaseSensitiveSort = 0
+let g:NERDTreeNaturalSort = 1
+let g:NERDTreeChDirMode = 0
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeHijackNetrw = 1
+let g:NERDTreeIgnore = ['\~$']
+let g:NERDTreeRespectWildIgnore = 0
+let g:NERDTreeBookmarksFile = "$HOME/.NERDTreeBookmarks"
+let g:NERDTreeBookmarksSort = 1
+let g:NERDTreeMarkBookmarks = 1
+let g:NERDTreeMouseMode = 1
+let g:NERDTreeQuitOnOpen = 0
+let g:NERDTreeShowBookmarks = 0
+let g:NERDTreeShowFiles = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeShowLineNumbers = 0
+let g:NERDTreeSortOrder = ['\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeStatusline = -1
+let g:NERDTreeWinPos = "left"
+let g:NERDTreeWinSize = 30
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeCascadeSingleChildDir = 0
+let g:NERDTreeCascadeOpenSingleChildDir = 0
+let g:NERDTreeAutoDeleteBuffer = 0
+let g:NERDTreeCreatePrefix = "silent"
+" ==============================================================================
+" KEY MAPPINGS
 map <C-n> :NERDTreeToggle<CR>
 
 " syntastic
