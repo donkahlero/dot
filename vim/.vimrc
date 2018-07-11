@@ -19,7 +19,7 @@ set noautowriteall
 " B
 " ==============================================================================
 " set background=dark " TODO causes rendering issues ATM.
-set backspace& " We keep default for now
+" set backspace& " TODO we need correct settings here
 set backup
 set backupcopy=auto
 set backupdir=/tmp
@@ -77,8 +77,33 @@ set nocursorbind
 set cursorcolumn
 set cursorline
 
-set dir=/tmp
+" D
+" ==============================================================================
+set debug=
+set define=^\\s*#\\s*define
+set nodelcombine
+set dictionary=
+set nodiff
+set diffexpr=
+set diffopt=filler
+set nodigraph
+set directory=/tmp,~/tmp
+set display& " TODO revise
+
+" E
+" ==============================================================================
+set eadirection=both
+set noedcompatible
+set noemoji
 set encoding=utf-8
+set endofline
+set equalalways
+set equalprg=
+set noerrorbells
+set errorfile=/var/log/vim-errors.log
+set errorformat& " As default is 'very long', we omit.
+set noesckeys
+
 set mouse=a
 set number
 set swapfile
