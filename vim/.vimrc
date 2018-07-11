@@ -58,15 +58,12 @@ Plugin 'justincampbell/vim-eighties'
 Plugin 'WolfgangMehner/c-support'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'fatih/vim-go'
-Plugin 'ervandew/supertab'
-Plugin 'takac/vim-spotifysearch'
 call vundle#end()
 filetype plugin indent on
 
-
 " vim-airline
 " ==============================================================================
-" CONFIGURATION
+" OPTIONS
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline_detect_crypt = 1
@@ -81,7 +78,7 @@ let g:airline_symbols_ascii = 0
 " NERDTree
 " ==============================================================================
 " OPTIONS
-let g:loaded_nerd_tree = 0
+" let g:loaded_nerd_tree = 0
 let g:NERDTreeAutoCenter = 1
 let g:NERDTreeAutoCenterThreshold = 5
 let g:NERDTreeCaseSensitiveSort = 0
@@ -91,7 +88,7 @@ let g:NERDTreeHighlightCursorline = 0
 let g:NERDTreeHijackNetrw = 1
 let g:NERDTreeIgnore = ['\~$']
 let g:NERDTreeRespectWildIgnore = 0
-let g:NERDTreeBookmarksFile = "$HOME/.NERDTreeBookmarks"
+let g:NERDTreeBookmarksFile = $HOME.'/.NERDTreeBookmarks'
 let g:NERDTreeBookmarksSort = 1
 let g:NERDTreeMarkBookmarks = 1
 let g:NERDTreeMouseMode = 1
@@ -151,6 +148,42 @@ let g:syntastic_c_include_dirs = [ '../include', 'include', '../*' ]
 let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
 let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+
+" c-support - https://github.com/WolfgangMehner/c-support
+let g:C_CCompiler = 'gcc'
+let g:C_CExtension = 'c'
+let g:C_CFlags = '-Wall -g -O0 -c' "EXPAND
+let g:C_CodeCheckExeName = 'check'
+let g:C_CodeCheckOptions = ''
+let g:C_CodeSnippets = $HOME.'/.vim/bundle/c-support/codesnippets/'
+let g:C_CplusCompiler = 'g++'
+let g:C_Ctrl_j = 'off'
+let g:C_CustomTemplateFile = $HOME.'/.vim/templates/c.templates'
+let g:C_Debugger = 'gdb'
+let g:C_Dictionary_File = ''
+let g:C_ExeExtension = ''
+let g:C_GlobalTemplateFile = $HOME.'/.vim/bundle/c-support/templates/Templates'
+let g:C_GuiSnippetBrowser = 'commandline'
+let g:C_InsertFileHeader = 'no'
+let g:C_LFlags = '-Wall -g -O0'
+let g:C_Libs = '-lm'
+let g:C_LineEndCommColDefault = 49
+let g:C_LoadMenus = 'yes'
+let g:C_CreateMenusDelayed = 'yes'
+let g:C_LocalTemplateFile = $HOME.'/.vim/c-support/templates/Templates'
+let g:C_Man = 'man'
+let g:C_MapLeader = '\'
+let g:C_NonCComment = '#'
+let g:C_ObjExtension = '.o'
+let g:C_OutputGvim = 'vim'
+let g:C_Printheader = "%<%f%h%m%<  %=%{strftime('%x %X')}     Page %N"
+let g:C_RootMenu = '&C\/C\+\+.'
+let g:C_SourceCodeExtensions = 'c cc cp cxx cpp'
+let g:C_TypeOfH = 'c'
+let g:C_VimCompilerName = 'gcc'
+let g:Xterm_Executable = 'kitty'
+let g:Xterm_Options = ''
 
 " vim-go - http://github.com/fatih/vim-go
 " ==============================================================================
