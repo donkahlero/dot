@@ -102,7 +102,92 @@ set equalprg=
 set noerrorbells
 set errorfile=/var/log/vim-errors.log
 set errorformat& " As default is 'very long', we omit.
-set noesckeys
+set esckeys&
+set eventignore=
+set expandtab
+set noexrc
+
+" F
+" ==============================================================================
+set fileencoding=
+set fileencodings=ucs-bom,utf-8,default,latin1
+set fileformat=unix " no need for CR!
+set fileformats=unix,mac,dos " but maybe somebody else likes 'em...
+set nofileignorecase
+set filetype=
+set fillchars&
+set fixendofline
+set nofkmap
+set foldclose=
+set foldcolumn=0
+set foldenable
+set foldexpr=0
+set foldignore=#,//
+set foldlevel=2
+set foldlevelstart=-1
+set foldmarker={{{,}{}
+set foldmethod=syntax
+set foldminlines=1
+set foldnestmax=5
+set foldopen=block,hor,mark,percent,quickfix,search,tag,undo
+set foldtext=foldtext{}
+set formatexpr=
+set formatoptions=tcq
+set formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+set formatprg=
+set fsync
+
+" G
+" ==============================================================================
+set nogdefault
+set grepformat=%f:%l:%m,%f:%l%m,%f\ %l%m
+set grepprg=grep\ -n\ $*\ /dev/null
+" this config is xterm only - no gui support
+set guicursor=
+set guifont=
+set guifontset=
+set guifontwide=
+set guiheadroom=0
+set guioptions=
+set noguipty
+set guitablabel=
+set guitabtooltip=
+
+" H
+" ==============================================================================
+set helpfile=$VIMRUNTIME/doc/help.txt
+set helpheight=25
+set helplang=en,de
+set nohidden
+" for highlight see below
+set history=250
+set nohkmap
+set nohlsearch
+
+" I
+" ==============================================================================
+set noicon
+set iconstring=
+set noignorecase
+set imactivatefunc=
+set imactivatekey=
+set noimcmdline
+set noimdisable
+set iminsert=0
+set imsearch=-1
+set imstatusfunc=
+set imstyle=1
+set include=^\\s*#\\s*include " TODO improve for C usage
+set includeexpr=
+set incsearch
+set indentexpr=
+set indentkeys=0{,0},:,0#,!^F,o,O,e
+set noinfercase
+set noinsertmode
+set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,="
+set isident=@,48-57,_,192-255
+set iskeyword=@,48-57,_,192-255
+set isprint=@,161-255
 
 set mouse=a
 set number
@@ -117,11 +202,11 @@ syntax enable
 " red line after 80th column
 highlight ColorColumn ctermbg=red
 " trailing whitepace and spaces before a tab
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
 " cursor
-highlight CursorLine cterm=NONE ctermbg=8 guibg=8
-highlight CursorColumn cterm=NONE ctermbg=8 guibg=8
+highlight CursorLine cterm=NONE ctermbg=8
+highlight CursorColumn cterm=NONE ctermbg=8
 
 
 " MISC SETTINGS
@@ -129,7 +214,7 @@ highlight CursorColumn cterm=NONE ctermbg=8 guibg=8
 " remove whitespaces
 autocmd BufWritePre * %s/\s\+$//e
 " tabs (separate for c, so we make sure to follow the holy linx coding style)
-set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
+set tabstop=4 shiftwidth=4 softtabstop=0 smarttab
 autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
 
@@ -276,6 +361,7 @@ let g:C_TypeOfH = 'c'
 let g:C_VimCompilerName = 'gcc'
 let g:Xterm_Executable = 'kitty'
 let g:Xterm_Options = ''
+
 
 " vim-go - http://github.com/fatih/vim-go
 " ==============================================================================
