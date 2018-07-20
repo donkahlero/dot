@@ -1,3 +1,5 @@
+" THIS CONFIG IS LINUX ONLY! DOES NOT WORK ON MACOS OR WINDOWS!
+
 " ALL VIM OPTIONS (SEE options.txt)
 " ==============================================================================
 
@@ -189,11 +191,285 @@ set isident=@,48-57,_,192-255
 set iskeyword=@,48-57,_,192-255
 set isprint=@,161-255
 
+" J
+" ==============================================================================
+set joinspaces
+
+" K
+" ==============================================================================
+set key=
+set keymap=
+set keymodel=
+set keywordprg=man
+
+" L
+" ==============================================================================
+set langmap=
+set langmenu=
+set nolangnoremap
+set nolangremap
+set laststatus=1
+set nolazyredraw
+set nolinebreak
+set lines& " term height
+set linespace=0
+set nolisp
+set lispwords& " default is very long list of words...
+set nolist
+set listchars=eol:$
+set loadplugins
+set luadll&
+
+" M
+" ==============================================================================
+set macatsui
+set magic
+set makeef=
+set makeencoding=
+set makeprg=make
+set matchpairs=(:),{:},[:]
+set matchtime=5
+set maxcombine=2
+set maxfuncdepth=100
+set maxmapdepth=1000
+set maxmem& " system depended
+set maxmempattern=1000
+set maxmemtot& " system depended
+set menuitems=0
+set mkspellmem=460000,2000,500
+set modeline
+set modelines=5
+set modifiable
+set nomodified
+set more
 set mouse=a
+set nomousefocus
+set mousehide
+set mousemodel=extend
+set mouseshape=i:beam,r:beam,s:updown,sd:cross,m:no,ml:up-arrow,v:rightup-arrow
+set mousetime=500
+set mzschemedll& " depends on build
+set mzschemegcdll& " depends on build
+set mzquantum=100
+
+" N
+" ==============================================================================
+set nrformats=bin,octal,hex
 set number
+set numberwidth=5
+
+" O
+" ==============================================================================
+set omnifunc=
+set noopendevice
+set operatorfunc=
+
+" P
+" ==============================================================================
+set packpath& " keep def val
+set paragraphs=IPLPPPQPP\ TPHPLIPpLpItpplpipbp
+set nopaste
+set pastetoggle=
+set patchexpr=
+set patchmode=
+set path& " keep def val
+set perldll& " depends on build
+set nopreserveindent
+set previewheight=10
+set nopreviewwindow
+set printdevice=
+set printencoding=
+set printexpr& " keep def val
+set printfont=Space\ Mono\ for\ Powerline
+set printheader=
+set printmbcharset=
+set printmbfont=
+set printoptions=
+set prompt
+set pumheight=0
+set pumwidth=15
+set pythondll& " depends on build
+set pythonhome=
+set pythonthreedll& " depends on build
+set pyxversion& " depends on build
+
+" Q
+" ==============================================================================
+set quoteescape=\\
+
+" R
+" =============================================================================
+set noreadonly
+set redrawtime=2000
+set regexpengine=0
+set norelativenumber
+set remap
+set renderoptions=
+set report=0
+set restorescreen
+set norevins
+set norightleft
+set rightleftcmd=
+set rubydll& " depends on build
+set noruler
+set rulerformat=
+set runtimepath& " keep def val
+
+" S
+" ==============================================================================
+set scroll& " half the window height
+set noscrollbind
+set scrolljump=1
+set scrolloff=5
+set scrollopt=ver,jump
+set sections=SHNHH\ HUnhsh
+set nosecure
+set selection=inclusive
+set selectmode=
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,terminal
+set shell=sh " we need to stay POSIX compliant
+set shellcmdflag=-c
+set shellpipe& " keep def val
+set shellquote=
+set shellredir& " keep def val
+set noshellslash
+set shelltemp
+set shellxescape=
+set shellxquote=
+set noshiftround
+set shiftwidth=4
+set shortmess=filnxtToO
+set noshortname
+set showbreak=+++
+set showcmd
+set noshowfulltag
+set noshowmatch
+set noshowmode
+set showtabline=1
+set sidescroll=0
+set sidescrolloff=0
+set signcolumn=auto
+set nosmartcase
+set nosmartindent
+set smarttab
+set softtabstop=0
+set nospell
+set spellcapcheck=[.?!]\\_[\\])'"\ \\t]\\+
+set spellfile=
+set spelllang=en,de
+set spellsuggest=double
+set nosplitbelow
+set splitright
+set startofline
+set statusline=
+set suffixes=.bak,~,.o,.h,.info,.swp,.obj
+set suffixesadd=
 set swapfile
-set wildmode=longest,list,full
+set swapsync=fsync
+set switchbuf=
+set synmaxcol=3000
+set syntax=ON " further settings below
+
+" T
+" ==============================================================================
+set tabline=
+set tabpagemax=12
+set tabstop=4
+set tagbsearch
+set tagcase=followic
+set taglength=0
+set tagrelative
+set tags&
+set tagstack
+set tcldll& " depends on build
+set term& " use $TERM
+set notermbidi
+set termencoding=
+set termwinscroll=10000
+set termwinkey=
+set termwinsize=
+set noterse
+set textauto
+set notextmode
+set textwidth=0
+set thesaurus=
+set notildeop
+set timeout&
+set ttimeout&
+set timeoutlen&
+set ttimeoutlen&
+set title&
+set titlelen=85
+set titleold=Vim\ is\ best
+set titlestring=
+set toolbar=
+set toolbariconsize=small
+set ttybuiltin
+set ttyfast " as this config is used in an xterm setup
+set ttymouse&
+set ttyscroll=999
+set ttytype& " retrieve from env
+
+" U
+" ==============================================================================
+set undodir=.
+set noundofile
+set undolevels=1000
+set undoreload=10000
+set updatecount=50
+set updatetime=5000
+
+" V
+" ==============================================================================
+set verbose=0
+set verbosefile=
+set viewdir=~/.vim/view
+set viewoptions=folds,options,cursor,curdir
+set viminfo='100,<50,s10,h
+set viminfofile=NONE
+set virtualedit=
+set visualbell
+
+" W
+" ==============================================================================
+set warn
+set noweirdinvert
+set whichwrap=b,s
+set wildchar&
+set wildcharm&
+set wildignore=
+set nowildignorecase
 set wildmenu
+set wildmode=longest,list,full
+set wildoptions=
+set winaltkeys=
+set window&
+set winheight=1
+set nowinfixheight
+set nowinfixwidth
+set winminheight=1
+set winminwidth=1
+set winptydll&
+set winwidth=20
+set nowrap
+set wrapmargin=0
+set wrapscan
+set write
+set nowriteany
+set writebackup
+set writedelay=0
+
+" X
+" ==============================================================================
+" no options available starting with letter x
+
+" Y
+" ==============================================================================
+" no options available starting with letter y
+
+" Z
+" ==============================================================================
+" no options available starting with letter z
 
 
 " HIGHLIGHTING
@@ -213,8 +489,7 @@ highlight CursorColumn cterm=NONE ctermbg=8
 " ==============================================================================
 " remove whitespaces
 autocmd BufWritePre * %s/\s\+$//e
-" tabs (separate for c, so we make sure to follow the holy linx coding style)
-set tabstop=4 shiftwidth=4 softtabstop=0 smarttab
+" override tab settings for c to follow the holy linx kernel coding style
 autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 
 
