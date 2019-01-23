@@ -21,7 +21,7 @@ set noautowriteall
 " B
 " ==============================================================================
 " set background=dark " TODO causes rendering issues ATM.
-" set backspace& " TODO we need correct settings here
+set backspace=indent,eol,start
 set backup
 set backupcopy=auto
 set backupdir=/tmp
