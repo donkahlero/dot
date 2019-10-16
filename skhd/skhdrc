@@ -1,0 +1,57 @@
+# Applications
+# Kitty
+cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# Focus
+lalt - h : chunkc tiling::window --focus west
+lalt - j : chunkc tiling::window --focus south
+lalt - k : chunkc tiling::window --focus north
+lalt - l : chunkc tiling::window --focus east
+
+lalt - 1 : chunkc tiling::desktop --focus 1 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 2 : chunkc tiling::desktop --focus 2 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 3 : chunkc tiling::desktop --focus 3 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 4 : chunkc tiling::desktop --focus 4 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 5 : chunkc tiling::desktop --focus 5 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 6 : chunkc tiling::desktop --focus 6 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 7 : chunkc tiling::desktop --focus 7 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 8 : chunkc tiling::desktop --focus 8 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+lalt - 9 : chunkc tiling::desktop --focus 9 && osascript -e 'tell application "Übersicht" to refresh widget id "tacobar-desktops-coffee"'
+
+lalt - u : chunkc tiling::monitor -f prev
+lalt - i : chunkc tiling::monitor -f next
+
+# Move
+lshift + lalt - h : chunkc tiling::window --warp west
+lshift + lalt - j : chunkc tiling::window --warp south
+lshift + lalt - k : chunkc tiling::window --warp north
+lshift + lalt - l : chunkc tiling::window --warp east
+
+lshift + lalt - 1 : chunkc tiling::window --send-to-desktop 1
+lshift + lalt - 2 : chunkc tiling::window --send-to-desktop 2
+lshift + lalt - 3 : chunkc tiling::window --send-to-desktop 3
+lshift + lalt - 4 : chunkc tiling::window --send-to-desktop 4
+lshift + lalt - 5 : chunkc tiling::window --send-to-desktop 5
+lshift + lalt - 6 : chunkc tiling::window --send-to-desktop 6
+lshift + lalt - 7 : chunkc tiling::window --send-to-desktop 7
+lshift + lalt - 8 : chunkc tiling::window --send-to-desktop 8
+lshift + lalt - 9 : chunkc tiling::window --send-to-desktop 9
+
+lshift + lalt - u : chunkc tiling::window --send-to-monitor prev
+lshift + lalt - i : chunkc tiling::window --send-to-monitor next
+
+# Resizing
+lctrl + lalt - h : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
+lctrl + lalt - j : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
+lctrl + lalt - k : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
+lctrl + lalt - l : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
+
+# Desktop Creation/Removal/Moval
+lalt - 0x18 : chunkc tiling::desktop --create
+lalt - 0x1B : chunkc tiling::desktop --annihilate
+lalt - 0x21 : chunkc tiling::desktop --move prev
+lalt - 0x1E : chunkc tiling::desktop --move next
+
+# Other Ops
+lalt - o : chunkc tiling::window --toggle split
+lalt - p : chunkc tiling::desktop --rotate 90
