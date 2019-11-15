@@ -231,7 +231,7 @@ export const command = `
         wifi="$(/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -I | awk '/ SSID/{print $2}')" \
         batt="$(/usr/local/bin/jo \
             ac="$(system_profiler SPPowerDataType | grep "Connected" | awk '{print tolower($2)}')" \
-            perc="$(pmset -g batt | grep -Eo "\\d+%" | cut -d% -f1)"% \
+            perc="$(pmset -g batt | grep -Eo "\\d+%" | cut -d% -f1)" \
         )" \
         date="$(date +"%m/%d/%Y")" \
         time="$(date +"%I:%M %p")"
@@ -279,7 +279,7 @@ export const render = ({output, error}) => {
                 {output.wifi}
                 &emsp;<span className={spacer}>|</span>&emsp;
                 <span className={`${fa_free} ${icon} ${css({ color: battIcon.color })}`}>{battIcon.icon}</span>
-                {output.batt.perc}
+                {output.batt.perc}{'%'}
                 &emsp;<span className={spacer}>|</span>&emsp;
                 <span className={`${fa_free} ${icon} ${css({ color: '#55adff' })}`}></span>
                 {output.date}
