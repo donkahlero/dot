@@ -1,6 +1,6 @@
 # TacoDot
 
-![Overview](doc/overview.png)
+![Overview](doc/overview_mac.png)
 
 This repo fullfills two purposes:
 * Of course this is my personal backup - if something happens to my precious ;)
