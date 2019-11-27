@@ -12,19 +12,26 @@ personally enjoy: [Panda](https://panda.siamak.work/). All of the provided
 config files are obviously easiest to use by just symlinking at their correct
 spot.
 
-Just for people that care: I am using this setup on an 2015 MacBook Pro running
-Arch.
+This repository includes both config files for macOS and GNU/Linux. Currently I
+am running solely the macOS config files on my 2018 15'' MBP.
 
 # Quick Overview?
-* Window Manager: [herbstluftwm](https://herbstluftwm.org/)
-* Text Editor: [vim]()
+* Window Manager (macOS): [yabai](https://github.com/koekeishiya/yabai)
+* Window Manager (GNU/Linux): [herbstluftwm](https://herbstluftwm.org/)
+* Text Editor: [vim](https://www.vim.org/)
 * Shell: [fish](https://fishshell.com/)
 * Terminal Emu: [kitty](https://github.com/kovidgoyal/kitty)
 
 # What Other Utilities are Required?
-To have the full lemonbar and other functionality working, you will need the
-following additional software:
+That truly depends on the OS. To have the full functionality working, you will
+need the following additional software:
 
+## macOS
+* [Übersicht](http://tracesof.net/uebersicht/)
+* [jo](https://github.com/jpmens/jo)
+* [jq](https://stedolan.github.io/jq/)
+
+## GNU/Linux
 * [rofi](https://github.com/DaveDavenport/rofi)
 * [nm-applet](https://wiki.archlinux.org/index.php/NetworkManager)
 * [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)
