@@ -161,6 +161,12 @@ function getAppIcon(name) {
                 icon:  '',      // Firefox Icon
                 color: '#e55b0a' // Firefox Orange
             };
+        case "qutebrowser":
+            return {
+                font:  fa_free,
+                icon:  '',      // Compass icon in lack of better one
+                color: '#7ebaff' // qutebrowser blue
+            };
         case "kitty":
             return {
                 font:  fa_free,
