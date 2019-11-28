@@ -222,20 +222,20 @@ function getAppIcon(name) {
 
 
 export const command = `
-    spaces=$(/usr/local/bin/yabai -m query --spaces) && \
-    windows=$(/usr/local/bin/yabai -m query --windows) && \
-    /usr/local/bin/jo \
-        spaces="$(/usr/local/bin/jo \
-            used="$(echo $spaces | /usr/local/bin/jq -cr '[.[] | select(.windows != []) | .index]')" \
-            unused="$(echo $spaces | /usr/local/bin/jq -cr '[.[] | select(.windows == []) | .index]')" \
-            focused="$(echo $spaces | /usr/local/bin/jq -cr '.[] | select(.focused == 1) | .index')" \
+    spaces=$(yabai -m query --spaces) && \
+    windows=$(yabai -m query --windows) && \
+    jo \
+        spaces="$(jo \
+            used="$(echo $spaces | jq -cr '[.[] | select(.windows != []) | .index]')" \
+            unused="$(echo $spaces | jq -cr '[.[] | select(.windows == []) | .index]')" \
+            focused="$(echo $spaces | jq -cr '.[] | select(.focused == 1) | .index')" \
         )" \
-        application="$(/usr/local/bin/jo \
-            name="$(echo $windows | /usr/local/bin/jq -cr '.[] | select(.focused == 1) | .app')" \
-            title="$(echo $windows | /usr/local/bin/jq -cr '.[] | select(.focused == 1) | .title')" \
+        application="$(jo \
+            name="$(echo $windows | jq -cr '.[] | select(.focused == 1) | .app')" \
+            title="$(echo $windows | jq -cr '.[] | select(.focused == 1) | .title')" \
         )" \
         wifi="$(/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -I | awk '/ SSID/{print $2}')" \
-        batt="$(/usr/local/bin/jo \
+        batt="$(jo \
             ac="$(system_profiler SPPowerDataType | grep "Connected" | awk '{print tolower($2)}')" \
             perc="$(pmset -g batt | grep -Eo "\\d+%" | cut -d% -f1)" \
         )" \
