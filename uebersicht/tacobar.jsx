@@ -211,6 +211,13 @@ function getAppIcon(name) {
                 color: '#e01e5a', // Slack red
                 info: 'Slack'     // Does not have a window title
             }
+        case "Steam":
+            return {
+                font:  fa_brands,
+                icon:  '',      // Steam Symbol
+                color: '00adee', // Steam Blue
+                info:  'Steam'
+            }
         default:
             return {
                 font:  fa_brands,
