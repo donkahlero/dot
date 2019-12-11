@@ -30,6 +30,7 @@ need the following additional software:
 * [Übersicht](http://tracesof.net/uebersicht/)
 * [jo](https://github.com/jpmens/jo)
 * [jq](https://stedolan.github.io/jq/)
+* [aha](https://github.com/theZiz/aha)
 
 ## GNU/Linux
 * [rofi](https://github.com/DaveDavenport/rofi)
