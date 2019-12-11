@@ -214,9 +214,15 @@ function getAppIcon(name) {
         case "Steam":
             return {
                 font:  fa_brands,
-                icon:  '',      // Steam Symbol
-                color: '00adee', // Steam Blue
+                icon:  '',       // Steam Symbol
+                color: '#00adee', // Steam Blue
                 info:  'Steam'
+            }
+        case "Affinity Photo":
+            return {
+                font: fa_free,
+                icon:  '',       // Retro Camera
+                color: '#eb74ff'  // Affinity Photo Purple
             }
         default:
             return {
