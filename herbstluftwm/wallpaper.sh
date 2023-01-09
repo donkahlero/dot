@@ -1,5 +1,5 @@
 #!/bin/bash
 #Get all different wallpapers
-files=(~/.config/herbstluftwm/wallpapers/*)
+files=(~/Pictures/wallpaper/*)
 wallpaper="${files[RANDOM % ${#files[@]}]}"
-feh --bg-scale $wallpaper
+feh --bg-fill $wallpaper
