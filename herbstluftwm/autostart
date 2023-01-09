@@ -180,8 +180,24 @@ hc detect_monitors
 # Set a random wallpaper as backround on each startup
 ~/.config/herbstluftwm/wallpaper.sh
 
-# Start lemonbar
-~/.config/lemonbar/run.sh &
+# Start polybar
+killall polybar
+polybar &
+pids+=($!)
+
+# Start udiskie
+killall udiskie
+udiskie &
+pids+=($!)
+
+# protonmail-bridge
+killall protonmail-bridge
+protonmail-bridge &
+pids+=($!)
+
+# flameshot
+killall flameshot
+flameshot &
 pids+=($!)
 
 # Wait until we go down again...
