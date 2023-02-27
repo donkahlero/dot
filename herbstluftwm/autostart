@@ -180,25 +180,23 @@ hc detect_monitors
 # Set a random wallpaper as backround on each startup
 ~/.config/herbstluftwm/wallpaper.sh
 
-# Start polybar
+# (re-)start polybar
 killall polybar
 polybar &
 pids+=($!)
 
 # Start udiskie
-killall udiskie
-udiskie &
-pids+=($!)
-
-# protonmail-bridge
-killall protonmail-bridge
-protonmail-bridge &
-pids+=($!)
+if ! pgrep udiskie &> /dev/null 2>&1; then
+    udiskie &
+    pids+=($!)
+fi
 
 # flameshot
-killall flameshot
-flameshot &
-pids+=($!)
+if ! pgrep flameshot &> /dev/null 2>&1; then
+    flameshot &
+    pids+=($!)
+fi
+
 
 # Wait until we go down again...
 trap 'herbstclient emit_hook quit_panel' TERM
