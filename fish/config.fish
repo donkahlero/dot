@@ -17,5 +17,7 @@ set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 starship init fish | source
-kitty + complete setup fish | source
+
+pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
