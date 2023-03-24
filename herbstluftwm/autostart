@@ -147,9 +147,9 @@ hc attr theme.active.color '#fc59a6'
 hc attr theme.normal.color '#5c9fff'
 hc attr theme.urgent.color '#fb055a'
 hc attr theme.inner_width 0
-hc attr theme.border_width 4
+hc attr theme.border_width 5
 hc attr theme.floating.outer_width 0
-hc attr theme.floating.border_width 4
+hc attr theme.floating.border_width 5
 
 hc set window_gap 0
 hc set frame_padding 0
@@ -177,26 +177,14 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 autorandr --change
 hc detect_monitors
 
-# Set a random wallpaper as backround on each startup
-~/.config/herbstluftwm/wallpaper.sh
-
-# (re-)start polybar
-killall polybar
-polybar &
-pids+=($!)
-
-# Start udiskie
-if ! pgrep udiskie &> /dev/null 2>&1; then
+if hc silent new_attr bool my_not_first_autostart ; then
+    feh --bg-fill ~/.config/herbstluftwm/wallpaper.jpeg &
+    polybar &
+    polybar --config=.config/polybar/config_bottom.ini &
+    hideIt.sh --name '^Polybar tray window$' --region 0x1080+10+-40 -w &
     udiskie &
-    pids+=($!)
-fi
-
-# flameshot
-if ! pgrep flameshot &> /dev/null 2>&1; then
     flameshot &
-    pids+=($!)
 fi
-
 
 # Wait until we go down again...
 trap 'herbstclient emit_hook quit_panel' TERM
