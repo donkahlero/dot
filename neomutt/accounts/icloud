@@ -1,0 +1,38 @@
+# vim: filetype=muttrc
+# vim: syntax=muttrc
+unmailboxes *
+
+source ~/.config/neomutt/accounts/icloud_credentials
+
+## Incoming
+set folder = "imaps://$imap_user@imap.mail.me.com:993"
+set spoolfile = +INBOX
+set postponed = +Drafts
+set mbox = +Archive
+set record = "+Sent Messages"
+
+## Outgoing
+set smtp_authenticators = 'gssapi:login'
+set smtp_url=smtp://$imap_user:$imap_pass@smtp.mail.me.com:587/
+set smtp_pass=$imap_pass
+set realname = ""
+set from = $imap_user
+set hostname="icloud.com"
+unset signature
+
+## Connection options
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
+## Hooks
+account-hook $imap_user "set imap_user=$imap_user imap_pass=$imap_pass"
+
+## Macros
+macro pager,index S "<save-message>+Junk<Enter>"
+
+set my_mbox6 = $imap_user
+folder-hook $my_mbox6 "source $my_mboxes_dir/$my_mbox6"
+
+macro index,pager "\e6" '<sync-mailbox><enter-command>source $my_mboxes_dir/$my_mbox6<enter><change-folder>!<enter><enter-command>echo $my_mbox6<enter>' \
+"Switch to icloud imap account"
+

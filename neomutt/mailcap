@@ -1,0 +1,12 @@
+# HTML
+text/html; firefox %s && sleep 1; description=HTML Text; nametemplate=%s.html
+
+# Plain Text
+text/plain; nvim %s
+
+#PDFs
+application/pdf; zathura %s
+
+#Images
+image/png; /usr/bin/feh %s
+image/jpeg; /usr/bin/feh %s
