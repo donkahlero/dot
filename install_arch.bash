@@ -37,6 +37,7 @@ yay -S \
 	feh \
 	fish \
 	fuse2 \
+	glow \
 	kitty \
 	herbstluftwm \
 	hideit.sh-git \
