@@ -182,6 +182,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
     polybar &
     polybar --config=.config/polybar/config_bottom.ini &
     hideIt.sh --name '^Polybar tray window$' --region 0x1080+10+-40 -w &
+    dunst &
     udiskie &
     flameshot &
 fi
