@@ -185,6 +185,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
     dunst &
     udiskie &
     flameshot &
+    xautolock -time 10 -locker slock &
 fi
 
 # Wait until we go down again...

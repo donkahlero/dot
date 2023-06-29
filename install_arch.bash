@@ -57,6 +57,7 @@ yay -S \
 	trash-cli \
 	udiskie \
 	unzip \
+	xautolock \
 	xclip \
 	zathura \
 	zathura-pdf-poppler \
