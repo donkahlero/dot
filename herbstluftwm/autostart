@@ -27,7 +27,7 @@ hc keybind $Mod-n spawn networkmanager_dmenu
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-l spawn slock
+hc keybind $Mod-0 spawn slock
 hc keybind $Mod-Return spawn kitty
 
 # New wallpaper
@@ -91,7 +91,7 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # Tags
 tag_names=(0001 0010 0011 0100 0101 0110 0111 1000 1001)
-tag_keys=( {1..9} 0 )
+tag_keys=( {1..9} )
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
