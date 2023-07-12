@@ -16,6 +16,3 @@ set -x GOPATH /home/jonas/go
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
-
