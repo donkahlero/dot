@@ -31,6 +31,7 @@ install_yay
 # install required packages
 yay -S \
 	atool \
+	battery-notify \
 	blueman \
 	bluez \
 	dunst \

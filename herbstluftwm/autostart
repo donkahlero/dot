@@ -178,16 +178,20 @@ autorandr --change
 hc detect_monitors
 
 if hc silent new_attr bool my_not_first_autostart ; then
-    feh --bg-fill ~/.config/herbstluftwm/wallpaper.jpeg &
-    polybar &
-    polybar --config=.config/polybar/config_bottom.ini &
-    hideIt.sh --name '^Polybar tray window$' --region 0x1080+10+-40 -w &
     dunst &
     udiskie &
     flameshot &
     blueman-applet &
+    battery-notify &
     xautolock -time 10 -locker slock &
 fi
+
+killall polybar
+killall hideIt.sh
+polybar &
+polybar --config=.config/polybar/config_bottom.ini &
+hideIt.sh --name '^Polybar tray window$' --region 0x1080+10+-40 -w &
+feh --bg-fill ~/.config/herbstluftwm/wallpaper.jpeg &
 
 # Wait until we go down again...
 trap 'herbstclient emit_hook quit_panel' TERM
