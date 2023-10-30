@@ -1,0 +1,7 @@
+interval_secs = 30
+low_pct = 20
+sleep_pct = 10
+sleep_command = 'systemctl suspend'
+warn_on_mons_with_no_ac = 2
+bluetooth_low_pct = 20
+

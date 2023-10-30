@@ -1,0 +1,8 @@
+# vim: filetype=muttrc
+
+source ~/.config/neomutt/general
+source ~/.config/neomutt/colors
+source ~/.config/neomutt/mappings
+
+# default account
+source ~/.config/neomutt/accounts/sinix.se

@@ -27,7 +27,7 @@ hc keybind $Mod-n spawn networkmanager_dmenu
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-l spawn slock
+hc keybind $Mod-0 spawn slock
 hc keybind $Mod-Return spawn kitty
 
 # New wallpaper
@@ -91,7 +91,7 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # Tags
 tag_names=(0001 0010 0011 0100 0101 0110 0111 1000 1001)
-tag_keys=( {1..9} 0 )
+tag_keys=( {1..9} )
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
@@ -147,9 +147,9 @@ hc attr theme.active.color '#fc59a6'
 hc attr theme.normal.color '#5c9fff'
 hc attr theme.urgent.color '#fb055a'
 hc attr theme.inner_width 0
-hc attr theme.border_width 4
+hc attr theme.border_width 5
 hc attr theme.floating.outer_width 0
-hc attr theme.floating.border_width 4
+hc attr theme.floating.border_width 5
 
 hc set window_gap 0
 hc set frame_padding 0
@@ -177,12 +177,21 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 autorandr --change
 hc detect_monitors
 
-# Set a random wallpaper as backround on each startup
-~/.config/herbstluftwm/wallpaper.sh
+if hc silent new_attr bool my_not_first_autostart ; then
+    dunst &
+    udiskie &
+    flameshot &
+    blueman-applet &
+    battery-notify &
+    xautolock -time 10 -locker slock &
+fi
 
-# Start lemonbar
-~/.config/lemonbar/run.sh &
-pids+=($!)
+killall polybar
+killall hideIt.sh
+polybar &
+polybar --config=.config/polybar/config_bottom.ini &
+hideIt.sh --name '^Polybar tray window$' --region 0x1080+10+-40 -w &
+feh --bg-fill ~/.config/herbstluftwm/wallpaper.jpeg &
 
 # Wait until we go down again...
 trap 'herbstclient emit_hook quit_panel' TERM

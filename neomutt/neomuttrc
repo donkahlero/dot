@@ -1,0 +1,10 @@
+# vim: filetype=muttrc
+
+source ~/.config/neomutt/general
+source ~/.config/neomutt/colors
+source ~/.config/neomutt/mappings
+source ~/.config/neomutt/sidebar
+
+# default account
+source ~/.config/neomutt/accounts/icloud
+

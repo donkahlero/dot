@@ -1,0 +1,18 @@
+# vim: filetype=muttrc
+set editor = "nvim"
+
+set my_name = "Jonas Kahler"
+set imap_check_subscribed
+set envelope_from
+
+set forward_format = "fwd: %s"
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+set mailcap_path = "~/.config/neomutt/mailcap"
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+set sort = "reverse-date"
+
+auto_view text/html
+alternative_order text/enriched text/plain text/html text
