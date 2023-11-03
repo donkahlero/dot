@@ -42,10 +42,27 @@ if &compatible
     set nocompatible
 endif
 
-set runtimepath+=/home/jonas/.cache/dein/repos/github.com/Shougo/dein.vim
+let s:dein_base = '~/.cache/dein/'
+let s:dein_src = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
 
-call dein#begin('/home/jonas/.cache/dein')
-call dein#add('/home/jonas/.cache/dein/repos/github.com/Shougo/dein.vim')
+let $CACHE = expand('~/.cache')
+if !($CACHE->isdirectory())
+  call mkdir($CACHE, 'p')
+endif
+if &runtimepath !~# '/dein.vim'
+  let s:dir = 'dein.vim'->fnamemodify(':p')
+  if !(s:dir->isdirectory())
+    let s:dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+    if !(s:dir->isdirectory())
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dir
+    endif
+  endif
+  execute 'set runtimepath^='
+        \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
+endif
+
+call dein#begin(s:dein_base)
+call dein#add(s:dein_src)
 call dein#add("rcarriga/nvim-dap-ui")
 call dein#add('LumaKernel/ddc-tabnine')
 call dein#add('Shougo/ddc-ui-native')
