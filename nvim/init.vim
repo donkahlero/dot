@@ -7,12 +7,30 @@ set list
 set nocursorbind
 set noscrollbind
 set number
-set syntax=ON
+set nowrap
+
+" ==============================================================================
+" EXTERNAL LUA
+" ==============================================================================
+lua require('lazy_config')
+"lua require('catpuccin_config')
+lua require('copilot_config')
+lua require('Comment').setup()
+lua require('cmp_config')
+lua require('dap_config')
+lua require('devicons_config')
+lua require('gitsigns_config')
+lua require('indent-blankline_config')
+lua require('lsp_config')
+lua require('telescope_config')
+lua require('treesitter_config')
 
 " ==============================================================================
 " HIGHLIGHTING
 " ==============================================================================
-syntax enable
+filetype on
+filetype plugin indent on
+syntax on
 highlight ColorColumn ctermbg=red
 highlight ExtraWhitespace ctermbg=red
 :match ExtraWhitespace /\s\+$/
@@ -23,111 +41,27 @@ set listchars=space:⋅,tab:>\ ,trail:-,nbsp:+,eol:↵
 " ==============================================================================
 " MISC SETTINGS
 " ==============================================================================
+colorscheme dracula
+
 " remove whitespaces
 autocmd BufWritePre * %s/\s\+$//e
 " lang specific tab settings
-autocmd Filetype c          setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
-autocmd Filetype css        setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 expandtab autoindent
-autocmd Filetype dockerfile setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 expandtab autoindent
-autocmd Filetype html       setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 expandtab autoindent
-autocmd Filetype py         setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 expandtab autoindent
+autocmd Filetype c		setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
+autocmd Filetype bzl,cucumber,css,dockerfile,html,py
+	\ setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 expandtab autoindent
+autocmd Filetype go		setlocal tabstop=8 softtabstop=8 shiftwidth=8 autoindent colorcolumn=121
+autocmd Filetype typescript	setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2 expandtab autoindent
+
 " clipboard
 vnoremap <leader>y "*y
 vnoremap <leader>p "*p
 
 " ==============================================================================
-" DEIN
-" ==============================================================================
-if &compatible
-    set nocompatible
-endif
-
-let s:dein_base = '~/.cache/dein/'
-let s:dein_src = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
-
-let $CACHE = expand('~/.cache')
-if !($CACHE->isdirectory())
-  call mkdir($CACHE, 'p')
-endif
-if &runtimepath !~# '/dein.vim'
-  let s:dir = 'dein.vim'->fnamemodify(':p')
-  if !(s:dir->isdirectory())
-    let s:dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
-    if !(s:dir->isdirectory())
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dir
-    endif
-  endif
-  execute 'set runtimepath^='
-        \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
-endif
-
-call dein#begin(s:dein_base)
-call dein#add(s:dein_src)
-call dein#add("rcarriga/nvim-dap-ui")
-call dein#add('LumaKernel/ddc-tabnine')
-call dein#add('Shougo/ddc-ui-native')
-call dein#add('Shougo/ddc.vim')
-call dein#add('catppuccin/nvim')
-call dein#add('lewis6991/gitsigns.nvim')
-call dein#add('lambdalisue/fern.vim')
-call dein#add('lambdalisue/fern-renderer-nerdfont.vim')
-call dein#add('lambdalisue/glyph-palette.vim')
-call dein#add('lambdalisue/nerdfont.vim')
-call dein#add('lukas-reineke/indent-blankline.nvim')
-call dein#add('mhinz/vim-startify')
-call dein#add('mfussenegger/nvim-dap')
-call dein#add('mfussenegger/nvim-dap-python')
-call dein#add('ntpeters/vim-better-whitespace')
-call dein#add('nvim-lua/plenary.nvim')
-call dein#add('nvim-telescope/telescope.nvim')
-call dein#add('nvim-tree/nvim-web-devicons')
-call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
-call dein#add("rcarriga/nvim-notify")
-call dein#add('romgrk/barbar.nvim')
-call dein#add('roxma/nvim-yarp')
-call dein#add('roxma/vim-hug-neovim-rpc')
-call dein#add('t9md/vim-choosewin')
-call dein#add('tpope/vim-fugitive')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-denops/denops.vim')
-call dein#add('vim-syntastic/syntastic')
-call dein#end()
-
-filetype plugin indent on
-syntax enable
-
-if dein#check_install()
-  call dein#install()
-endif
-
-" ==============================================================================
-" CATPUCCIN
-" ==============================================================================
-colorscheme catppuccin
-
-" ==============================================================================
-" DDC
-" ==============================================================================
-call ddc#custom#patch_global('ui', 'native')
-call ddc#custom#patch_global('sources', ['tabnine'])
-call ddc#custom#patch_global('sourceOptions', {
-    \ 'tabnine': {
-    \   'mark': 'TN',
-    \   'maxCandidates': 5,
-    \   'isVolatile': v:true,
-    \ }})
-inoremap <silent><expr> <TAB>
-\ pumvisible() ? '<C-n>' :
-\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-\ '<TAB>' : ddc#map#manual_complete()
-inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
-
-call ddc#enable()
-
-" ==============================================================================
 " FERN
 " ==============================================================================
 let g:fern#renderer = "nerdfont"
+let g:fern#opener = "tabedit"
+let g:fern#default_hidden = 1
 
 augroup my-glyph-palette
   autocmd! *
@@ -146,19 +80,36 @@ let g:airline_detect_crypt = 1
 let g:airline_detect_spell = 1
 let g:airline_detect_spelllang = 1
 let g:airline_detect_iminsert = 0
-let g:airline_inactive_collapse=1
-let g:airline_theme='catppuccin'
+let g:airline_inactive_collapse = 1
+let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 let g:airline_symbols_ascii = 0
 
 " ==============================================================================
-" EXTERNAL LUA
+" VIM-GO
 " ==============================================================================
-lua require('catpuccin_config')
-lua require('dap_config')
-lua require('devicons_config')
-lua require('gitsigns_config')
-lua require('indent-blankline_config')
-lua require('telescope_config')
-lua require('treesitter_config')
+let g:go_code_completion_enabled = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "gopls"
+let g:go_gopls_gofumpt = 1
 
+" ==============================================================================
+" vim-asciidoctor
+" ==============================================================================
+fun! AsciidoctorMappings()
+    nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
+    nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
+    nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
+    nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
+    nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
+    nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
+    nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
+    nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
+    " :make will build pdfs
+    compiler asciidoctor2pdf
+endfun
+
+augroup asciidoctor
+    au!
+    au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
+augroup END
