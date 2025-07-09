@@ -55,20 +55,6 @@ autocmd Filetype typescript	setlocal tabstop=2 softtabstop=2 expandtab shiftwidt
 vnoremap <leader>y "*y
 vnoremap <leader>p "*p
 
-" ==============================================================================
-" FERN
-" ==============================================================================
-let g:fern#renderer = "nerdfont"
-let g:fern#opener = "tabedit"
-let g:fern#default_hidden = 1
-
-augroup my-glyph-palette
-  autocmd! *
-  autocmd FileType fern call glyph_palette#apply()
-  autocmd FileType nerdtree,startify call glyph_palette#apply()
-augroup END
-
-nnoremap <C-d> :Fern . -drawer -width=35 -toggle<CR>
 
 " ==============================================================================
 " VIM-AIRLINE

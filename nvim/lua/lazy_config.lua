@@ -20,19 +20,6 @@ local plugins = {
     },
   },
   {
-    "dense-analysis/ale",
-    config = function()
-      local g = vim.g
-      g.ale_ruby_rubocop_auto_correct_all = 1
-      g.ale_linters = {
-        go = {"golangci-lint", "gofumpt"},
-        javascript = {"prettier", "eslint"},
-        lua = {"lua_language_server"},
-        typescript = {"prettier", "eslint"}
-      }
-    end
-  },
-  {
     "dracula/vim",
     name = "dracula",
     priority = 1000,
@@ -107,10 +94,6 @@ local plugins = {
       },
     },
   },
-  {
-    "Bilal2453/luvit-meta",
-    lazy = true
-  },
   "habamax/vim-asciidoctor",
   {
     "hrsh7th/nvim-cmp",
@@ -132,25 +115,27 @@ local plugins = {
       })
     end,
   },
-  {
-    "lambdalisue/fern.vim",
-    dependencies = {
-      "lambdalisue/fern-renderer-nerdfont.vim",
-      "lambdalisue/vim-fern-git-status",
-      "lambdalisue/glyph-palette.vim",
-      "lambdalisue/nerdfont.vim",
-      "andykog/fern-highlight.vim",
-    },
-  },
   "leoluz/nvim-dap-go",
   "lewis6991/gitsigns.nvim",
-  "lukas-reineke/indent-blankline.nvim",
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
   "mhinz/vim-startify",
   "neovim/nvim-lspconfig",
   "ntpeters/vim-better-whitespace",
   "numToStr/Comment.nvim",
-  "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+  },
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
   {
@@ -161,14 +146,19 @@ local plugins = {
     },
   },
   "rcarriga/nvim-notify",
-  "romgrk/barbar.nvim",
-  "roxma/nvim-yarp",
-  "roxma/vim-hug-neovim-rpc",
-  "t9md/vim-choosewin",
+  -- {
+  --   "romgrk/barbar.nvim",
+  --   dependencies = {
+  --     "lewis6991/gitsigns.nvim",
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  -- },
+  -- "roxma/nvim-yarp",
+  -- "roxma/vim-hug-neovim-rpc",
+  -- "t9md/vim-choosewin",
   "tpope/vim-cucumber",
   "tpope/vim-fugitive",
   "vim-airline/vim-airline",
-  "vim-denops/denops.vim",
 }
 
 require("lazy").setup(plugins)
