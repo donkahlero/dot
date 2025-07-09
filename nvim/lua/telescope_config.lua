@@ -7,7 +7,9 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 require("telescope").setup({
     defaults = {
         file_ignore_patterns = {
-            'storybook-static/',
+            "node%_modules/.*",
+            "storybook%-static/.*",
+            ".angular/.*"
         }
     }
 })

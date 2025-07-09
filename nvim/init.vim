@@ -13,8 +13,6 @@ set nowrap
 " EXTERNAL LUA
 " ==============================================================================
 lua require('lazy_config')
-"lua require('catpuccin_config')
-lua require('copilot_config')
 lua require('Comment').setup()
 lua require('cmp_config')
 lua require('dap_config')
@@ -22,6 +20,7 @@ lua require('devicons_config')
 lua require('gitsigns_config')
 lua require('indent-blankline_config')
 lua require('lsp_config')
+lua require('noice_config')
 lua require('telescope_config')
 lua require('treesitter_config')
 

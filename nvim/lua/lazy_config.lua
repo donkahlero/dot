@@ -20,15 +20,15 @@ local plugins = {
     },
   },
   {
-    'dense-analysis/ale',
+    "dense-analysis/ale",
     config = function()
       local g = vim.g
       g.ale_ruby_rubocop_auto_correct_all = 1
       g.ale_linters = {
-        go = {'golangci-lint', 'gofumpt'},
-        javascript = {'prettier', 'eslint'},
-        lua = {'lua_language_server'},
-        typescript = {'prettier', 'eslint'}
+        go = {"golangci-lint", "gofumpt"},
+        javascript = {"prettier", "eslint"},
+        lua = {"lua_language_server"},
+        typescript = {"prettier", "eslint"}
       }
     end
   },
@@ -49,7 +49,7 @@ local plugins = {
   },
   {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    opts = {},
     cmd = "Trouble",
     keys = {
       {
@@ -85,13 +85,18 @@ local plugins = {
     },
   },
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {},
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+      }
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    opts = {},
     keys = {
       {
         "<leader>?",
@@ -106,34 +111,18 @@ local plugins = {
     "Bilal2453/luvit-meta",
     lazy = true
   },
-  'habamax/vim-asciidoctor',
+  "habamax/vim-asciidoctor",
   {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     event = 'InsertEnter',
     dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function ()
-          require("copilot_cmp").setup()
-        end,
-        dependencies = {
-          {
-            "zbirenbaum/copilot.lua",
-            cmd = "Copilot",
-            event = "InsertEnter",
-            config = function()
-              require("copilot").setup({})
-            end
-          }
-        }
-      },
-      'hrsh7th/vim-vsnip',
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-cmdline',
-      'saadparwaiz1/cmp_luasnip',
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
+      "saadparwaiz1/cmp_luasnip",
     },
     opts = function(_, opts)
       opts.sources = opts.sources or {}
