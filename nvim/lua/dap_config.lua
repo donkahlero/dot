@@ -71,4 +71,24 @@ local dap = require("dap")
 
 
 -- GOLANG
-require("dap-go").setup()
+require("dap-go").setup({
+  dap_configurations = {
+    {
+      type = "go",
+      name = "Attach remote",
+      mode = "remote",
+      request = "attach",
+      host = "127.0.0.1",
+      port = "40000",
+      showLog = true,
+      trace = "log",
+      logOutput = "rpc",
+      substitutePath = {
+        {
+          from = "${workspaceFolder}",
+          to = "",
+        },
+      },
+    },
+  },
+})
