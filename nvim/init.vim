@@ -4,6 +4,7 @@ set cursorline
 set encoding=utf-8
 set guicursor=
 set list
+set mousemoveevent
 set nocursorbind
 set noscrollbind
 set number

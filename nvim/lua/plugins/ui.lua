@@ -56,7 +56,7 @@ return {
           color_icons = true,
           show_buffer_icons = true,
           show_buffer_close_icons = true,
-          show_close_icon = false,
+          show_close_icon = true,
           show_tab_indicators = true,
           show_duplicate_prefix = true,
           duplicates_across_groups = true,
@@ -69,7 +69,9 @@ return {
           hover = {
               enabled = true,
               delay = 200,
-              reveal = {"close"}
+              reveal = {
+                "close",
+              },
           },
           sort_by = 'insert_at_end',
           pick = {
