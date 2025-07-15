@@ -1,6 +1,15 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3400
+SETUVAR --export AWS_INITIALS:jk
+SETUVAR --export AWS_REGION:eu\x2dcentral\x2d1
+SETUVAR --export BTM_BETRIEBSSTELLEN_V2_DB_API_KEY:56a1c7f75a06dfff9ff793cc20b67e65
+SETUVAR --export BTM_BETRIEBSSTELLEN_V2_DB_CLIENT_ID:6d22154b4de4635784297cddd135e99b
+SETUVAR --export BTM_BETRIEBSSTELLEN_V2_URI:https\x3a//apis\x2ehub\x2edb\x2ede/db/apis/betriebsstellen/v2
+SETUVAR --export GOPROXY:https\x3a//proxy\x2egolang\x2eorg\x2cdirect
+SETUVAR --export GOROOT:/opt/homebrew/opt/go/libexec/
+SETUVAR --export TERM:xterm\x2d256color
+SETUVAR --export XDG_CONFIG_HOME:/Users/jonaskahler/\x2econfig
+SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
@@ -18,7 +27,7 @@ SETUVAR fish_color_operator:brcyan
 SETUVAR fish_color_param:cyan
 SETUVAR fish_color_quote:yellow
 SETUVAR fish_color_redirection:cyan\x1e\x2d\x2dbold
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
