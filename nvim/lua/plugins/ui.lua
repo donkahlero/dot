@@ -156,6 +156,11 @@ return {
       }
   },
   {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
     "folke/trouble.nvim",
     opts = {},
     cmd = "Trouble",
@@ -293,6 +298,7 @@ return {
                 use_float = true,
                 use_snacks_image = true,
                 use_image_nvim = true,
+                use_libuv_file_watcher = true,
               },
             },
             ["l"] = "focus_preview",
@@ -323,6 +329,14 @@ return {
             ["<"] = "prev_source",
             [">"] = "next_source",
             ["i"] = "show_file_details",
+          },
+        },
+        default_component_configs = {
+          filesystem = {
+            follow_current_file = {
+              enabled = true,
+              leave_dirs_open = false,
+            },
           },
         },
       })
@@ -366,6 +380,7 @@ return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "leoluz/nvim-dap-go",
       "nvim-neotest/nvim-nio",
     },
   },
