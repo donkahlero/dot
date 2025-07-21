@@ -13,8 +13,9 @@ set -x LC_ALL en_US.UTF-8
 switch (uname)
     case Darwin
 	set -x PATH $PATH /opt/homebrew/bin
-	set -x GOPATH /Users/jonas/go
-	set -x PATH $PATH /Users/jonas/go/bin
+	set -x PATH $PATH /opt/podman/bin
+	set -x GOPATH /Users/jonaskahler/go
+	set -x PATH $PATH /Users/jonaskahler/go/bin
     case Linux
 	set -x PATH $PATH /home/jonas/go/bin /usr/local/bin /home/jonas/.local/bin
 	set -x GOPATH /home/jonas/go
