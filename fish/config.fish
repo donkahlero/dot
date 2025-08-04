@@ -16,6 +16,7 @@ switch (uname)
 	set -x PATH $PATH /opt/podman/bin
 	set -x GOPATH /Users/jonaskahler/go
 	set -x PATH $PATH /Users/jonaskahler/go/bin
+	set -x PATH $PATH /usr/local/bin
     case Linux
 	set -x PATH $PATH /home/jonas/go/bin /usr/local/bin /home/jonas/.local/bin
 	set -x GOPATH /home/jonas/go
