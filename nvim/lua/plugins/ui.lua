@@ -273,8 +273,6 @@ return {
       "MunifTanjim/nui.nvim",
     },
     lazy = false,
-    ---@module "neo-tree"
-    ---@type neotree.Config?
     config = function()
       vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
@@ -331,12 +329,23 @@ return {
             ["i"] = "show_file_details",
           },
         },
-        default_component_configs = {
-          filesystem = {
-            follow_current_file = {
-              enabled = true,
-              leave_dirs_open = false,
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            show_hidden_count = true,
+            hide_dotfiles = false,
+            hide_gitignored = true,
+            hide_by_name = {},
+            never_show = {
+              ".git",
+              ".ijwb",
+              ".DS_Store",
+              "thumbs.db",
             },
+          },
+          follow_current_file = {
+            enabled = true,
+            leave_dirs_open = false,
           },
         },
       })
