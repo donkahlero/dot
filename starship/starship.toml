@@ -1,0 +1,84 @@
+palette = "catppuccin_mocha"
+
+format = """
+$directory\
+[](bg:pink fg:base)\
+$git_branch\
+[](bg:green fg:pink)\
+$time\
+[ ](fg:green)\
+"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[directory]
+style = "bg:base"
+format = "[ $path ](bold fg:pink)"
+truncation_length = 5
+truncate_to_repo = false
+truncation_symbol = ".../"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
+
+[git_branch]
+symbol = ""
+format = '[ $symbol $branch ](bg:pink fg:base)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:green fg:base bold"
+format = '[ $time ]($style)'
+
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
