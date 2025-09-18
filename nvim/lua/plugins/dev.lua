@@ -6,6 +6,7 @@ return {
       "google/vim-maktaba",
     },
   },
+  "dmix/elvish.vim",
   "habamax/vim-asciidoctor",
   {
     "hrsh7th/nvim-cmp",
