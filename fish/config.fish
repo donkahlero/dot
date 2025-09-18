@@ -1,5 +1,5 @@
 set -x COLORTERM truecolor
-set -x TERM xterm-kitty
+set -x TERM xterm-256color
 set -x EDITOR nvim
 
 set -x LC_COLLATE en_US.UTF-8
@@ -24,4 +24,4 @@ end
 
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
-
+starship init fish | source
