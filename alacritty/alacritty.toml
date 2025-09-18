@@ -7,7 +7,7 @@ decorations = "Buttonless"
 padding = { x = 5, y = 5 }
 
 [terminal]
-shell = "/opt/homebrew/bin/fish"
+shell = { program = "/opt/homebrew/bin/fish", args = [ "-c", "zellij" ] }
 
 [font]
 normal = { family = "SpaceMono Nerd Font", style = "Regular" }
