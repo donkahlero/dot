@@ -1,0 +1,83 @@
+theme = "catppuccin-macchiato"
+
+[cursor]
+shape = 'block'
+blinking = true
+blinking-interval = 800
+
+[editor]
+program = "nvim"
+args = []
+
+# Fonts
+#
+# Configure fonts used by the terminal
+#
+# Note: You can set different font families but Rio terminal
+# will always look for regular font bounds whene
+#
+# You can also set family on root to overwrite all fonts.
+[fonts]
+family = "SpaceMono Nerd Font"
+size = 15
+#
+# You can also specify extra fonts to load
+# [fonts]
+# extras = [{ family = "Microsoft JhengHei" }]
+#
+# In case you want to specify any font feature:
+# [fonts]
+# features = ["ss02", "ss03", "ss05", "ss19"]
+#
+# Note: Font features do not have support to live reload on configuration,
+# so to reflect your changes, you will need to close and reopen Rio.
+#
+# You can also disable font hinting. Font hinting is enabled by default.
+# [fonts]
+# hinting = false
+#
+# You can also map the specified Unicode codepoints to a particular font.
+# [fonts]
+# symbol-map = [
+#   { start = "2297", end = "2299", font-family = "Cascadia Code NF" }
+# ]
+#
+
+# You can change how many lines are scrolled each time by setting this option.
+#
+# Scroll calculation for canonical mode will be based on `lines = (accumulated scroll * multiplier / divider)`,
+# If you want a quicker scroll, keep increasing the multiplier.
+# If you want to reduce scroll speed you will need to increase the divider.
+# You can use both properties also to find the best scroll for you.
+#
+# Multiplier default is 3.0.
+# Divider default is 1.0.
+# Example:
+# [scroll]
+# multiplier = 3.0
+# divider = 1.0
+
+# Navigation
+#
+# "mode" - Define navigation mode
+#   • NativeTab (MacOS only)
+#   • Bookmark
+#   • BottomTab
+#   • TopTab
+#   • Plain
+#
+# "hide-if-single" - Hide navigation UI if is single.
+# "clickable" - Enable click on tabs to switch.
+# "use-current-path" - Use same path whenever a new tab is created (Note: requires `use-fork` to be set to false).
+# "color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
+#
+# Example:
+# [navigation]
+# mode = "bookmark"
+# clickable = false
+# hide-if-single = true
+# use-current-path = false
+# color-automation = []
+
+[shell]
+program = "/usr/bin/fish"
