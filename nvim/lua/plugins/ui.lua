@@ -1,6 +1,7 @@
 return {
   {
     "akinsho/bufferline.nvim",
+    after = "catppuccin",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       opts = {
@@ -20,7 +21,7 @@ return {
       local bufferline = require('bufferline')
 
       bufferline.setup({
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        highlights = require("catppuccin.special.bufferline").get_theme(),
         options = {
           mode = "buffers", -- set to "tabs" to only show tabpages instead
           style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
@@ -31,27 +32,27 @@ return {
           left_mouse_command = "buffer %d",    -- can be a string | function, | false see "Mouse actions"
           middle_mouse_command = nil,          -- can be a string | function, | false see "Mouse actions"
           indicator = {
-              style = 'underline',
+            style = 'none',
           },
-          buffer_close_icon = '󰅖',
+          buffer_close_icon = '󰅖 ',
           modified_icon = '● ',
-          close_icon = ' ',
-          left_trunc_marker = ' ',
-          right_trunc_marker = ' ',
+          close_icon = '  ',
+          left_trunc_marker = '  ',
+          right_trunc_marker = '  ',
           max_name_length = 18,
           max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
           truncate_names = true, -- whether or not tab names should be truncated
-          tab_size = 20,
+          tab_size = 18,
           diagnostics = "nvim_lsp",
           diagnostics_update_in_insert = false, -- only applies to coc
           diagnostics_update_on_event = true, -- use nvim's diagnostic handler
           offsets = {
-              {
-                  filetype = "neo-tree",
-                  text = "files",
-                  text_align = "center",
-                  separator = true,
-              },
+            {
+              filetype = "neo-tree",
+              text = "files",
+              text_align = "center",
+              separator = true,
+            },
           },
           color_icons = true,
           show_buffer_icons = true,
@@ -61,7 +62,7 @@ return {
           show_duplicate_prefix = true,
           duplicates_across_groups = true,
           persist_buffer_sort = true,
-          move_wraps_at_ends = false,
+          move_wraps_at_ends = true,
           separator_style = "slant",
           enforce_regular_tabs = false,
           always_show_bufferline = true,
@@ -393,5 +394,21 @@ return {
       "nvim-neotest/nvim-nio",
     },
   },
-  "vim-airline/vim-airline",
+  {
+    "vim-airline/vim-airline",
+    config = function()
+      local g = vim.g
+
+      g.airline_detect_modified = 1
+      g.airline_detect_paste = 1
+      g.airline_detect_crypt = 1
+      g.airline_detect_spell = 1
+      g.airline_detect_spelllang = 1
+      g.airline_detect_iminsert = 0
+      g.airline_inactive_collapse = 1
+      g.airline_theme = 'catppuccin'
+      g.airline_powerline_fonts = 1
+      g.airline_symbols_ascii = 0
+    end
+  }
 }

@@ -6,6 +6,25 @@ return {
       "google/vim-maktaba",
     },
   },
+  {
+    "dense-analysis/ale",
+    config = function()
+      local g = vim.g
+
+      g.ale_fix_on_save = 1
+
+      g.ale_linters = {
+        go = { "gopls", "gofmt", "staticcheck", "govet", "golangci-lint" },
+        mail = { "proselint" },
+        markdown = { "proselint", "vale" },
+      }
+
+      g.ale_fixers = {
+        go = { "gofumpt" },
+        ["*"] = { "remove_trailing_lines", "trim_whitespace" },
+      }
+    end
+  },
   "dmix/elvish.vim",
   "habamax/vim-asciidoctor",
   {
@@ -28,6 +47,16 @@ return {
       })
     end,
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "neoclide/coc.nvim",
+        run = "yarn install --frozen-lockfile",
+      },
+    },
+  },
   "neovim/nvim-lspconfig",
   "numToStr/Comment.nvim",
   {
@@ -44,14 +73,14 @@ return {
     config = function(lp, opts)
       require("go").setup(opts)
 
-      local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*.go",
-        callback = function()
-        require('go.format').goimports()
-        end,
-        group = format_sync_grp,
-      })
+      -- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+      -- vim.api.nvim_create_autocmd("BufWritePre", {
+      --   pattern = "*.go",
+      --   callback = function()
+      --   require('go.format').goimports()
+      --   end,
+      --   group = format_sync_grp,
+      -- })
 
       local gopls_cfg = require('go.lsp').config()
       vim.lsp.config.gopls = gopls_cfg

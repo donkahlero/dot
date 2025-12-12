@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    ensure_installed = { "c", "cpp", "go", "lua", "python" },
+    ensure_installed = { "c", "cpp", "go", "lua", "python", "yaml" },
     sync_install = false,
     auto_install = true,
     ignore_install = { "javascript" },

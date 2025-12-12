@@ -38,8 +38,8 @@ set listchars=space:⋅,tab:>\ ,trail:-,nbsp:+,eol:↵
 " ==============================================================================
 " MISC SETTINGS
 " ==============================================================================
-" remove whitespaces
-autocmd BufWritePre * %s/\s\+$//e
+" remove whitespaces - now handled by ALE
+" autocmd BufWritePre * %s/\s\+$//e
 " lang specific tab settings
 autocmd Filetype c		setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 autocmd Filetype bzl,cucumber,css,dockerfile,html,py
@@ -51,29 +51,6 @@ autocmd Filetype lua,typescript
 " clipboard
 vnoremap <leader>y "*y
 vnoremap <leader>p "*p
-
-
-" ==============================================================================
-" VIM-AIRLINE
-" ==============================================================================
-let g:airline_detect_modified = 1
-let g:airline_detect_paste = 1
-let g:airline_detect_crypt = 1
-let g:airline_detect_spell = 1
-let g:airline_detect_spelllang = 1
-let g:airline_detect_iminsert = 0
-let g:airline_inactive_collapse = 1
-let g:airline_theme = 'catppuccin'
-let g:airline_powerline_fonts = 1
-let g:airline_symbols_ascii = 0
-
-" ==============================================================================
-" VIM-GO
-" ==============================================================================
-let g:go_code_completion_enabled = 1
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = "gopls"
-let g:go_gopls_gofumpt = 1
 
 " ==============================================================================
 " vim-asciidoctor
