@@ -1,6 +1,6 @@
 import XMonad
 import XMonad.Util.SpawnOnce ( spawnOnce )
-import Graphics.X11.ExtraTypes.XF86 (xF86XK_AudioLowerVolume, xF86XK_AudioRaiseVolume, xF86XK_AudioMute, xF86XK_MonBrightnessDown, xF86XK_MonBrightnessUp)
+import Graphics.X11.ExtraTypes.XF86 ( xF86XK_AudioLowerVolume, xF86XK_AudioRaiseVolume, xF86XK_AudioMute, xF86XK_MonBrightnessDown, xF86XK_MonBrightnessUp, xF86XK_Search )
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
@@ -29,6 +29,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Data.Map.fromList $
     -- Brightness
     , ((0, xF86XK_MonBrightnessUp),   spawn "brightnessctl s +10%")
     , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl s 10-%")
+
+    -- Misc
+    , ((0, xF86XK_Search), spawn "rofi -show run")
     ]
     ++
 
@@ -46,6 +49,8 @@ myLayoutHook = ( tiled )
 myWorkspaces    = ["0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001"]
 
 myStartupHook = do
+  spawnOnce "dbus-update-activation-environment --all"
+  spawnOnce "gnome-keyring-daemon --start --components=secrets"
   spawnOnce "feh --bg-scale ~/.config/herbstluftwm/wallpaper.jpeg"
   spawnOnce "polybar"
   spawnOnce "dunst"
