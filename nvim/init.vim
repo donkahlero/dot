@@ -15,10 +15,8 @@ set nowrap
 " ==============================================================================
 lua require("config.lazy")
 lua require('Comment').setup()
-lua require('cmp_config')
 lua require('dap_config')
 lua require('indent-blankline_config')
-lua require('lsp_config')
 
 " ==============================================================================
 " HIGHLIGHTING

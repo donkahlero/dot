@@ -14,7 +14,7 @@ return {
       g.ale_fix_on_save = 1
 
       g.ale_linters = {
-        go = { "gopls", "gofmt", "staticcheck", "govet", "golangci-lint" },
+        go = { "gofmt", "staticcheck", "govet" },
         mail = { "proselint" },
         markdown = { "proselint", "vale" },
       }
@@ -28,32 +28,12 @@ return {
   "dmix/elvish.vim",
   "habamax/vim-asciidoctor",
   {
-    "hrsh7th/nvim-cmp",
-    event = 'InsertEnter',
-    dependencies = {
-      "hrsh7th/vim-vsnip",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0,
-      })
-    end,
-  },
-  {
     "kevinhwang91/nvim-ufo",
     dependencies = {
       "kevinhwang91/promise-async",
       {
         "neoclide/coc.nvim",
-        run = "yarn install --frozen-lockfile",
+        branch = "release",
       },
     },
   },
@@ -70,6 +50,7 @@ return {
       lsp_inlay_hints = {
         enable = false,
       },
+      lsp_cfg = true,
     },
     config = function(lp, opts)
       require("go").setup(opts)
@@ -89,6 +70,40 @@ return {
         build = "cd lua/fzy && make",
       },
       { "neovim/nvim-lspconfig" },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    version = '1.*',
+    opts = {
+      keymap = {
+        preset = "default",
+      },
+      appearance = {
+        nerd_font_variant = "mono"
+      },
+      completion = {
+        documentation = {
+          auto_show = false,
+        },
+      },
+      sources = {
+        default = {
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+        },
+      },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+      }
+    },
+    opts_extend = {
+      "sources.default",
     },
   },
   "tpope/vim-cucumber",
