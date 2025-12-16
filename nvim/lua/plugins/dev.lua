@@ -20,7 +20,7 @@ return {
       }
 
       g.ale_fixers = {
-        go = { "gofumpt" },
+        go = { "goimports", "gofumpt" },
         ["*"] = { "remove_trailing_lines", "trim_whitespace" },
       }
     end
@@ -61,27 +61,18 @@ return {
   "numToStr/Comment.nvim",
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
+    dependencies = {
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {
-      -- lsp_keymaps = false,
-      -- other options
+      lsp_inlay_hints = {
+        enable = false,
+      },
     },
     config = function(lp, opts)
       require("go").setup(opts)
-
-      -- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-      -- vim.api.nvim_create_autocmd("BufWritePre", {
-      --   pattern = "*.go",
-      --   callback = function()
-      --   require('go.format').goimports()
-      --   end,
-      --   group = format_sync_grp,
-      -- })
-
       local gopls_cfg = require('go.lsp').config()
       vim.lsp.config.gopls = gopls_cfg
       vim.lsp.enable('gopls')
