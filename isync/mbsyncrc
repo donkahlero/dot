@@ -1,0 +1,26 @@
+# -*- mode: conf; tab-width: 4; -*-
+IMAPAccount icloud
+    Host imap.mail.me.com
+    Port 993
+    Timeout 0
+    AuthMechs LOGIN
+    TLSType IMAPS
+    User "gpg --quiet --for-your-eyes-only --decrypt $HOME/.config/secrets/icloud_user.gpg"
+    PassCmd "gpg --quiet --for-your-eyes-only --decrypt $HOME/.config/secrets/icloud_pass.gpg"
+    PipelineDepth 1
+
+IMAPStore icloud-remote
+    Account icloud
+
+MaildirStore icloud-local
+    Path ~/mail/icloud/
+    Inbox ~/mail/icloud/INBOX
+    SubFolders Verbatim
+
+Channel icloud
+    Far :icloud-remote:
+    Near :icloud-local:
+    Create Both
+    SyncState *
+    Patterns *
+    Expunge Both
