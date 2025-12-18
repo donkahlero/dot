@@ -221,7 +221,24 @@ return {
       },
     },
   },
-  "mhinz/vim-startify",
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    config = function()
+      require("dashboard").setup {
+        -- config
+      }
+    end,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -351,20 +368,4 @@ return {
       "nvim-neotest/nvim-nio",
     },
   },
-  {
-    "vim-airline/vim-airline",
-    config = function()
-      local g = vim.g
-
-      g.airline_detect_modified = 1
-      g.airline_detect_paste = 1
-      g.airline_detect_crypt = 1
-      g.airline_detect_spell = 1
-      g.airline_detect_spelllang = 1
-      g.airline_detect_iminsert = 0
-      g.airline_inactive_collapse = 1
-      g.airline_powerline_fonts = 1
-      g.airline_symbols_ascii = 0
-    end
-  }
 }
