@@ -1,7 +1,6 @@
 return {
   {
     "akinsho/bufferline.nvim",
-    after = "catppuccin",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       opts = {
@@ -21,7 +20,7 @@ return {
       local bufferline = require('bufferline')
 
       bufferline.setup({
-        highlights = require("catppuccin.special.bufferline").get_theme(),
+        -- highlights = require("catppuccin.special.bufferline").get_theme(),
         options = {
           mode = "buffers", -- set to "tabs" to only show tabpages instead
           style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
@@ -83,54 +82,6 @@ return {
     end
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      integrations = {
-        cmp = true,
-        dap = true,
-        dap_ui = true,
-        gitsigns = true,
-        indent_blankline = {
-          enabled = true,
-          scope_color = "lavender",
-          colored_indent_levels = false,
-        },
-        treesitter = true,
-        lsp_trouble = false,
-        native_lsp = {
-          enabled = true,
-          virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
-              ok = { "italic" },
-          },
-          underlines = {
-              errors = { "underline" },
-              hints = { "underline" },
-              warnings = { "underline" },
-              information = { "underline" },
-              ok = { "underline" },
-          },
-          inlay_hints = {
-              background = true,
-          },
-        },
-        neotree = true,
-        noice = true,
-        notify = true,
-        telescope = {
-          enabled = true,
-        },
-        treesitter = true,
-        which_key = true,
-      },
-    },
-  },
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
@@ -159,6 +110,12 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     opts = {},
   },
   {
@@ -406,7 +363,6 @@ return {
       g.airline_detect_spelllang = 1
       g.airline_detect_iminsert = 0
       g.airline_inactive_collapse = 1
-      g.airline_theme = 'catppuccin'
       g.airline_powerline_fonts = 1
       g.airline_symbols_ascii = 0
     end

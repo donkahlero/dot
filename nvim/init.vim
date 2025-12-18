@@ -21,7 +21,7 @@ lua require('indent-blankline_config')
 " ==============================================================================
 " HIGHLIGHTING
 " ==============================================================================
-colorscheme catppuccin-mocha
+colorscheme tokyonight-night
 
 filetype on
 filetype plugin indent on

@@ -1,4 +1,4 @@
-theme = "catppuccin-macchiato"
+theme = "tokyonight-night"
 
 [cursor]
 shape = 'block'

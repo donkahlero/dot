@@ -22,6 +22,8 @@ switch (uname)
 	set -x GOPATH /home/jonas/go
 end
 
+source $__fish_config_dir/conf.d/tokyonight_night.fish
+
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
-starship init fish | source
+# starship init fish | source
