@@ -1,3 +1,5 @@
+fish_config theme choose tokyonight_night
+
 set -x COLORTERM truecolor
 set -x TERM xterm-256color
 set -x EDITOR nvim
@@ -22,8 +24,12 @@ switch (uname)
 	set -x GOPATH /home/jonas/go
 end
 
-source $__fish_config_dir/conf.d/tokyonight_night.fish
+# styling
+set hydro_color_pwd $fish_color_option
+set hydro_color_git $fish_color_param
+set hydro_symbol_git_ahead $fish_color_operator
+set hydro_symbol_git_behind $fish_color_error
 
+# gpg
 set -gx GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
-# starship init fish | source
