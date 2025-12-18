@@ -368,4 +368,10 @@ return {
       "nvim-neotest/nvim-nio",
     },
   },
+  {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("scrollbar").setup()
+    end,
+  },
 }

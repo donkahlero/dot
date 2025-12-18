@@ -16,7 +16,6 @@ set nowrap
 lua require("config.lazy")
 lua require('Comment').setup()
 lua require('dap_config')
-lua require('indent-blankline_config')
 
 " ==============================================================================
 " HIGHLIGHTING
@@ -32,6 +31,7 @@ highlight ExtraWhitespace ctermbg=red
 highlight CursorLine cterm=NONE ctermbg=8
 highlight CursorColumn cterm=NONE ctermbg=8
 set listchars=space:⋅,tab:>\ ,trail:-,nbsp:+,eol:↵
+autocmd Filetype dashboard highlight ExtraWhitespace ctermbg=none guibg=none
 
 " ==============================================================================
 " MISC SETTINGS

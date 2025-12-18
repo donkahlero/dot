@@ -1,7 +1,7 @@
 return {
   {
     "echasnovski/mini.bufremove",
-    version = '*',
+    version = "*",
   },
   {
     "folke/lazydev.nvim",
@@ -18,7 +18,7 @@ return {
     lazy = false,
     opts = {
       bigfile = { enabled = true },
-      dashboard = { enabled = true },
+      dashboard = { enabled = false },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
@@ -27,7 +27,7 @@ return {
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
-      statuscolumn = { enabled = true },
+      statuscolumn = { enabled = false },
       words = { enabled = true },
     },
   },
@@ -37,6 +37,15 @@ return {
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
+    config = function()
+      require("ibl").setup {
+        exclude = {
+          filetypes = {
+            "dashboard",
+          },
+        },
+      }
+    end,
   },
   "ntpeters/vim-better-whitespace",
 }
