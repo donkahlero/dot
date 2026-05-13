@@ -13,15 +13,17 @@ args = []
 size = 13
 features = []
 use-drawable-chars = true
-Symbol-map = []
-disable-warnings-not-found = false
+symbol-map = []
+disable-warnings-not-found = true
 additional-dirs = []
 
 [fonts.regular]
-family = "Roboto Mono"
-style = "Normal"
-width = "Normal"
-weight = 400
+family = "SpaceMono Nerd Font"
+style = "default"
+
+[fonts.italic]
+family = "Maple Mono NF"
+style = "default"
 
 [shell]
 program = "/usr/bin/fish"
