@@ -238,6 +238,9 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
+    opts = {
+      theme = "tokyonight",
+    },
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

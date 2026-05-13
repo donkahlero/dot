@@ -16,6 +16,7 @@ set nowrap
 lua require("config.lazy")
 lua require('Comment').setup()
 lua require('dap_config')
+lua vim.lsp.enable('copilot')
 
 " ==============================================================================
 " HIGHLIGHTING

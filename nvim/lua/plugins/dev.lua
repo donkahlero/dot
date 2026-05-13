@@ -26,7 +26,6 @@ return {
     end
   },
   "dmix/elvish.vim",
-  "habamax/vim-asciidoctor",
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
@@ -37,14 +36,19 @@ return {
       },
     },
   },
-  "neovim/nvim-lspconfig",
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   init = function()
+  --     vim.lsp.enable('copilot')
+  --   end,
+  -- },
   "numToStr/Comment.nvim",
   {
     "ray-x/go.nvim",
     dependencies = {
       "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
+      "neovim/nvim-lspconfig",
     },
     opts = {
       lsp_inlay_hints = {
@@ -73,7 +77,66 @@ return {
     },
   },
   {
+    "olimorris/codecompanion.nvim",
+    version = "^19.0.0",
+    opts = {
+      interactions = {
+        chat = {
+          adapter = {
+            name = "copilot",
+            model = "claude-opus-4.6",
+          },
+          adapter = {
+            name = "kiro",
+            model = "claude-opus-4.6",
+          },
+        },
+        cli = {
+          agent = "copilot",
+          agents = {
+            copilot = {
+              cmd = "copilot",
+              args = {
+                "--model",
+                "claude-opus-4.6",
+              },
+              description = "GitHub Copilot CLI",
+            },
+          },
+        },
+        inline = {
+          adapter = {
+            name = "copilot",
+            model = "claude-opus-4.6",
+          },
+        },
+      },
+      display = {
+        chat = {
+          show_token_count = true,
+          window = {
+            buflisted = true,
+            sticky = true,
+            position = "right",
+            width = 0.25,
+            opts = {
+              number = false,
+              relativenumber = false,
+            },
+          },
+        },
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "ravitemer/mcphub.nvim",
+    },
+  },
+  {
     "saghen/blink.cmp",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
@@ -97,6 +160,9 @@ return {
           "snippets",
           "buffer",
         },
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        }
       },
       fuzzy = {
         implementation = "prefer_rust_with_warning",
@@ -104,6 +170,16 @@ return {
     },
     opts_extend = {
       "sources.default",
+    },
+  },
+  {
+    "tigion/nvim-asciidoc-preview",
+    ft = { "asciidoc" },
+    build = "cd server && npm install --omit=dev --no-save",
+    ---@module 'asciidoc-preview'
+    ---@type asciidoc-preview.Config
+    opts = {
+      -- Add user configuration here
     },
   },
   "tpope/vim-cucumber",
