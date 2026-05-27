@@ -4,7 +4,7 @@ sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", num
 sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = ""})
 sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = ""})
 
-vim.api.nvim_set_keymap('n', '<C-S-d>', ':lua require("dapui").toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-d>", ":lua require(\"dapui\").toggle()<CR>", { noremap = true, silent = true })
 require("dapui").setup({
   icons = { expanded = "", collapsed = "", current_frame = "" },
   mappings = {

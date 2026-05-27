@@ -17,34 +17,34 @@ return {
       },
     },
     config = function()
-      local bufferline = require('bufferline')
+      local bufferline = require("bufferline")
 
       bufferline.setup({
         -- highlights = require("catppuccin.special.bufferline").get_theme(),
         options = {
           mode = "buffers", -- set to "tabs" to only show tabpages instead
-          style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
+          style_preset = bufferline.style_preset.default,
           themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
           numbers = "none",
           close_command = ":bp | bd #",
-          right_mouse_command = ":bp | bd #", -- can be a string | function | false, see "Mouse actions"
-          left_mouse_command = "buffer %d",    -- can be a string | function, | false see "Mouse actions"
-          middle_mouse_command = nil,          -- can be a string | function, | false see "Mouse actions"
+          right_mouse_command = ":bp | bd #",
+          left_mouse_command = "buffer %d",
+          middle_mouse_command = nil,
           indicator = {
-            style = 'none',
+            style = "none",
           },
-          buffer_close_icon = '󰅖 ',
-          modified_icon = '● ',
-          close_icon = '  ',
-          left_trunc_marker = '  ',
-          right_trunc_marker = '  ',
+          buffer_close_icon = "󰅖 ",
+          modified_icon = "● ",
+          close_icon = "  ",
+          left_trunc_marker = "  ",
+          right_trunc_marker = "  ",
           max_name_length = 18,
           max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
           truncate_names = true, -- whether or not tab names should be truncated
           tab_size = 18,
           diagnostics = "nvim_lsp",
           diagnostics_update_in_insert = false, -- only applies to coc
-          diagnostics_update_on_event = true, -- use nvim's diagnostic handler
+          diagnostics_update_on_event = true,
           offsets = {
             {
               filetype = "neo-tree",
@@ -73,7 +73,7 @@ return {
                 "close",
               },
           },
-          sort_by = 'insert_at_end',
+          sort_by = "insert_at_end",
           pick = {
             alphabet = "abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ1234567890",
           },
@@ -173,20 +173,20 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {
       signs = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
+        add          = { text = "┃" },
+        change       = { text = "┃" },
+        delete       = { text = "_" },
+        topdelete    = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked    = { text = "┆" },
       },
       signs_staged = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
+        add          = { text = "┃" },
+        change       = { text = "┃" },
+        delete       = { text = "_" },
+        topdelete    = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked    = { text = "┆" },
       },
       signs_staged_enable = true,
       signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
@@ -201,21 +201,21 @@ return {
       current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
       current_line_blame_opts = {
         virt_text = true,
-        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
         delay = 1000,
         ignore_whitespace = false,
         virt_text_priority = 100,
       },
-      current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+      current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
       sign_priority = 6,
       update_debounce = 100,
       status_formatter = nil, -- Use default
       max_file_length = 40000, -- Disable if file is longer than this (in lines)
       preview_config = {
         -- Options passed to nvim_open_win
-        border = 'single',
-        style = 'minimal',
-        relative = 'cursor',
+        border = "single",
+        style = "minimal",
+        relative = "cursor",
         row = 0,
         col = 1
       },
@@ -342,11 +342,11 @@ return {
           }
       })
 
-      local telescopeBuiltin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, {})
-      vim.keymap.set('n', '<leader>fg', telescopeBuiltin.live_grep, {})
-      vim.keymap.set('n', '<leader>fb', telescopeBuiltin.buffers, {})
-      vim.keymap.set('n', '<leader>fh', telescopeBuiltin.help_tags, {})
+      local telescopeBuiltin = require("telescope.builtin")
+      vim.keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, {})
+      vim.keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, {})
+      vim.keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, {})
+      vim.keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, {})
 
       require("telescope").load_extension "file_browser"
 

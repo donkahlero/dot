@@ -30,16 +30,24 @@ return {
     "kevinhwang91/nvim-ufo",
     dependencies = {
       "kevinhwang91/promise-async",
-      {
-        "neoclide/coc.nvim",
-        branch = "release",
-      },
     },
+    opts = {
+      provider_selector = function(bufnr, filetype, buftype)
+        return { "lsp", "indent" }
+      end,
+    },
+    config = function(_, opts)
+      vim.o.foldcolumn = "1"
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+      require("ufo").setup(opts)
+    end,
   },
   -- {
   --   "neovim/nvim-lspconfig",
   --   init = function()
-  --     vim.lsp.enable('copilot')
+  --     vim.lsp.enable("copilot")
   --   end,
   -- },
   "numToStr/Comment.nvim",
@@ -58,13 +66,13 @@ return {
     },
     config = function(lp, opts)
       require("go").setup(opts)
-      local gopls_cfg = require('go.lsp').config()
+      local gopls_cfg = require("go.lsp").config()
       vim.lsp.config.gopls = gopls_cfg
-      vim.lsp.enable('gopls')
+      vim.lsp.enable("gopls")
     end,
     event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    ft = {"go", "gomod"},
+    build = ":lua require(\"go.install\").update_all_sync()"
   },
   {
     "ray-x/navigator.lua",
@@ -102,6 +110,11 @@ return {
               },
               description = "GitHub Copilot CLI",
             },
+            kiro = {
+              cmd = "kiro-cli",
+              args = {},
+              description = "Kiro CLI",
+            },
           },
         },
         inline = {
@@ -135,12 +148,12 @@ return {
   },
   {
     "saghen/blink.cmp",
-    ---@module 'blink.cmp'
+    ---@module "blink.cmp"
     ---@type blink.cmp.Config
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
-    version = '1.*',
+    version = "1.*",
     opts = {
       keymap = {
         preset = "default",
@@ -176,7 +189,7 @@ return {
     "tigion/nvim-asciidoc-preview",
     ft = { "asciidoc" },
     build = "cd server && npm install --omit=dev --no-save",
-    ---@module 'asciidoc-preview'
+    ---@module "asciidoc-preview"
     ---@type asciidoc-preview.Config
     opts = {
       -- Add user configuration here

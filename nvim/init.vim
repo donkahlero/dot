@@ -51,23 +51,4 @@ autocmd Filetype lua,typescript
 vnoremap <leader>y "*y
 vnoremap <leader>p "*p
 
-" ==============================================================================
-" vim-asciidoctor
-" ==============================================================================
-fun! AsciidoctorMappings()
-    nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
-    nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
-    nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
-    nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-    nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
-    nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
-    nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
-    nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
-    " :make will build pdfs
-    compiler asciidoctor2pdf
-endfun
 
-augroup asciidoctor
-    au!
-    au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
-augroup END
