@@ -1,4 +1,5 @@
 theme = "tokyonight-night"
+line-height = 1.2
 
 [cursor]
 shape = 'block'
@@ -14,16 +15,15 @@ size = 13
 features = []
 use-drawable-chars = true
 symbol-map = []
-disable-warnings-not-found = true
-additional-dirs = []
+disable-warnings-not-found = false
 
 [fonts.regular]
-family = "SpaceMono Nerd Font"
-style = "default"
+family = "VulfMonoCode Nerd Font Mono"
+style = "Regular"
 
 [fonts.italic]
-family = "Maple Mono NF"
-style = "default"
+family = "VulfMonoCode Nerd Font Mono"
+style = "Italic"
 
 [shell]
 program = "/usr/bin/fish"
