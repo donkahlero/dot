@@ -94,10 +94,6 @@ return {
             name = "copilot",
             model = "claude-opus-4.6",
           },
-          adapter = {
-            name = "kiro",
-            model = "claude-opus-4.6",
-          },
         },
         cli = {
           agent = "copilot",
@@ -109,11 +105,6 @@ return {
                 "claude-opus-4.6",
               },
               description = "GitHub Copilot CLI",
-            },
-            kiro = {
-              cmd = "kiro-cli",
-              args = {},
-              description = "Kiro CLI",
             },
           },
         },
