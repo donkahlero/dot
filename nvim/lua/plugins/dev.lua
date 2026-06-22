@@ -44,12 +44,39 @@ return {
       require("ufo").setup(opts)
     end,
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   init = function()
-  --     vim.lsp.enable("copilot")
-  --   end,
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    init = function()
+      vim.lsp.config('copilot', {
+        handlers = {
+          -- Suppress the "currently logged in as" startup dialog
+          ['window/showMessageRequest'] = function(err, result, ctx, config)
+            if result and result.message and result.message:match('logged in') then
+              return vim.NIL
+            end
+            return vim.lsp.handlers['window/showMessageRequest'](err, result, ctx, config)
+          end,
+          ['window/showMessage'] = function(err, result, ctx, config)
+            if result and result.message and (
+              result.message:match('logged in') or
+              result.message:match('igned in')
+            ) then
+              return
+            end
+            return vim.lsp.handlers['window/showMessage'](err, result, ctx, config)
+          end,
+        },
+      })
+      vim.lsp.enable('copilot')
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+          if client.name ~= 'copilot' then return end
+          vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
+        end,
+      })
+    end,
+  },
   "numToStr/Comment.nvim",
   {
     "ray-x/go.nvim",
