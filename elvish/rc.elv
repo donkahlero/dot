@@ -71,7 +71,8 @@ set edit:insert:binding[Ctrl-L] = $iterm2:clear-screen~
 # Set title to CWD when at prompt, running command when executing
 set edit:before-readline = [
   {
-    iterm2:windowtitle (path:abs $pwd)
+    var title = (str:replace $E:HOME "~" (path:abs $pwd))
+    iterm2:windowtitle $title
   }
   $@edit:before-readline
 ]
