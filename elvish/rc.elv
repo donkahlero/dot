@@ -82,3 +82,9 @@ set edit:after-readline = [
     iterm2:windowtitle $cmd
   }
 ]
+
+# ==============================================================================
+# carapace
+# ==============================================================================
+set-env CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
+eval (carapace _carapace|slurp)

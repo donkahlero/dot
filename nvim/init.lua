@@ -12,6 +12,7 @@ vim.o.cursorbind = false
 vim.o.scrollbind = false
 vim.o.number = true
 vim.o.wrap = false
+vim.opt.shell = "/bin/sh"
 
 -- =============================================================================
 -- EXTERNAL LUA
@@ -34,7 +35,7 @@ vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "red" })
 vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
 vim.api.nvim_set_hl(0, "CursorLine", { cterm = {}, ctermbg = 8 })
 vim.api.nvim_set_hl(0, "CursorColumn", { cterm = {}, ctermbg = 8 })
-vim.o.listchars = [[space:⋅,tab:>\ ,trail:-,nbsp:+,eol:↵]]
+vim.o.listchars = [[space:⋅,tab:> ,trail:-,nbsp:+,eol:↵]]
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "dashboard",
