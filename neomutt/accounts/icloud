@@ -11,7 +11,7 @@ set header_cache=~/.cache/mutt
 set postponed = +Drafts
 set mbox = +Archive
 set record = "+Sent Messages"
-mailboxes +INBOX +Archive "+Sent Messages"
+mailboxes +INBOX +Archive "+Sent Messages" +Junk
 
 ## Outgoing
 set smtp_authenticators = 'gssapi:login'

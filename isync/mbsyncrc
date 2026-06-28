@@ -5,8 +5,8 @@ IMAPAccount icloud
     Timeout 0
     AuthMechs LOGIN
     TLSType IMAPS
-    User "gpg --quiet --for-your-eyes-only --decrypt $HOME/.config/secrets/icloud_user.gpg"
-    PassCmd "gpg --quiet --for-your-eyes-only --decrypt $HOME/.config/secrets/icloud_pass.gpg"
+    UserCmd "gpg --quiet --for-your-eyes-only --decrypt ${HOME}/.config/secrets/icloud_user.gpg"
+    PassCmd "gpg --quiet --for-your-eyes-only --decrypt ${HOME}/.config/secrets/icloud_pass.gpg"
     PipelineDepth 1
 
 IMAPStore icloud-remote

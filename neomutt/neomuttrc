@@ -7,4 +7,3 @@ source ~/.config/neomutt/sidebar
 
 # default account
 source ~/.config/neomutt/accounts/icloud
-
