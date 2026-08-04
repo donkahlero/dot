@@ -3,6 +3,7 @@ return {
     "akinsho/bufferline.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
+      "nvim-mini/mini.bufremove",
       opts = {
         override = {
          zsh = {
@@ -18,7 +19,6 @@ return {
     },
     config = function()
       local bufferline = require("bufferline")
-
       bufferline.setup({
         -- highlights = require("catppuccin.special.bufferline").get_theme(),
         options = {
@@ -26,8 +26,12 @@ return {
           style_preset = bufferline.style_preset.default,
           themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
           numbers = "none",
-          close_command = ":bp | bd #",
-          right_mouse_command = ":bp | bd #",
+          close_command = function(bufnr)
+            require('mini.bufremove').delete(bufnr, false)
+          end,
+          right_mouse_command = function(bufnr)
+            require('mini.bufremove').delete(bufnr, false)
+          end,
           left_mouse_command = "buffer %d",
           middle_mouse_command = nil,
           indicator = {

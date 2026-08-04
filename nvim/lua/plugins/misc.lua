@@ -47,5 +47,6 @@ return {
       }
     end,
   },
+  "nvim-mini/mini.bufremove",
   "ntpeters/vim-better-whitespace",
 }

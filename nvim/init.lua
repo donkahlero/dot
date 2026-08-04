@@ -30,7 +30,7 @@ vim.cmd("filetype on")
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax on")
 
-vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = "red" })
+vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = "red", bg = "#db4b4b" })
 vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "red" })
 vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
 vim.api.nvim_set_hl(0, "CursorLine", { cterm = {}, ctermbg = 8 })
