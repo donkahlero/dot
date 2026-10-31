@@ -204,6 +204,14 @@ return {
     },
   },
   {
+    "stevearc/aerial.nvim",
+    opts = {},
+    dependencies = {
+       "nvim-treesitter/nvim-treesitter",
+       "nvim-tree/nvim-web-devicons"
+    },
+  },
+  {
     "tigion/nvim-asciidoc-preview",
     ft = { "asciidoc" },
     build = "cd server && npm install --omit=dev --no-save",

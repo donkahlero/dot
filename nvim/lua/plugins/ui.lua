@@ -337,13 +337,31 @@ return {
     "nvim-telescope/telescope.nvim",
     config = function()
       require("telescope").setup({
-          defaults = {
-              file_ignore_patterns = {
-                  "node%_modules/.*",
-                  "storybook%-static/.*",
-                  ".angular/.*"
-              }
+        defaults = {
+          file_ignore_patterns = {
+            "node%_modules/.*",
+            "storybook%-static/.*",
+            ".angular/.*"
           }
+        },
+        extensions = {
+          aerial = {
+            -- Set the width of the first two columns (the second
+            -- is relevant only when show_columns is set to 'both')
+            col1_width = 4,
+            col2_width = 30,
+            -- How to format the symbols
+            format_symbol = function(symbol_path, filetype)
+              if filetype == "json" or filetype == "yaml" then
+                return table.concat(symbol_path, ".")
+              else
+                return symbol_path[#symbol_path]
+              end
+            end,
+            -- Available modes: symbols, lines, both
+            show_columns = "both",
+          },
+        },
       })
 
       local telescopeBuiltin = require("telescope.builtin")
@@ -352,10 +370,14 @@ return {
       vim.keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, {})
       vim.keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, {})
 
-      require("telescope").load_extension "file_browser"
-
-      vim.keymap.set("n", "<space>fb", function()
+      require("telescope").load_extension("file_browser")
+      vim.keymap.set("n", "<leader>fe", function()
       	require("telescope").extensions.file_browser.file_browser()
+      end)
+
+      require("telescope").load_extension("aerial")
+      vim.keymap.set("n", "<leader>fa", function()
+      	require("telescope").extensions.aerial.aerial()
       end)
     end
   },
