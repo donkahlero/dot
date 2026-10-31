@@ -13,22 +13,25 @@ set -x LC_TIME en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 
 switch (uname)
-    case Darwin
-	set -x PATH $PATH /opt/homebrew/bin
-	set -x PATH $PATH /opt/podman/bin
-	set -x GOPATH /Users/jonaskahler/go
-	set -x PATH $PATH /Users/jonaskahler/go/bin
-	set -x PATH $PATH /usr/local/bin
-    case Linux
-	set -x PATH $PATH /home/jonas/go/bin /usr/local/bin /home/jonas/.local/bin
-	set -x GOPATH /home/jonas/go
+	case Darwin
+		set -x PATH $PATH /opt/homebrew/bin
+		set -x PATH $PATH /opt/podman/bin
+		set -x GOPATH /Users/jonaskahler/go
+		set -x PATH $PATH /Users/jonaskahler/go/bin
+		set -x PATH $PATH /usr/local/bin
+	case Linux
+		set -x PATH $PATH /home/jonas/go/bin /usr/local/bin /home/jonas/.local/bin
+		set -x GOPATH /home/jonas/go
 end
 
 # styling
-set hydro_color_pwd $fish_color_option
-set hydro_color_git $fish_color_param
-set hydro_symbol_git_ahead $fish_color_operator
-set hydro_symbol_git_behind $fish_color_error
+#set hydro_color_pwd $fish_color_option
+#set hydro_color_git $fish_color_param
+#set hydro_symbol_git_ahead $fish_color_operator
+#set hydro_symbol_git_behind $fish_color_error
+
+# starship
+starship init fish | source
 
 # gpg
 set -gx GPG_TTY (tty)
