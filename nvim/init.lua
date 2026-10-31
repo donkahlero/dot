@@ -33,8 +33,14 @@ vim.cmd("syntax on")
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = "red", bg = "#db4b4b" })
 vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg = "red" })
 vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
-vim.api.nvim_set_hl(0, "CursorLine", { cterm = {}, ctermbg = 8 })
-vim.api.nvim_set_hl(0, "CursorColumn", { cterm = {}, ctermbg = 8 })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#292e42", ctermbg = 8 })
+    vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#292e42", ctermbg = 8 })
+  end,
+})
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#292e42", ctermbg = 8 })
+vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#292e42", ctermbg = 8 })
 vim.o.listchars = [[space:⋅,tab:> ,trail:-,nbsp:+,eol:↵]]
 
 vim.api.nvim_create_autocmd("FileType", {
