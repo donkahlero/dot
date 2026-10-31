@@ -1,5 +1,5 @@
 theme = "tokyonight-night"
-line-height = 1.2
+line-height = 1
 
 [cursor]
 shape = 'block'
@@ -11,7 +11,7 @@ program = "nvim"
 args = []
 
 [fonts]
-size = 13
+size = 14
 features = []
 use-drawable-chars = true
 symbol-map = []
@@ -20,6 +20,10 @@ disable-warnings-not-found = false
 [fonts.regular]
 family = "VulfMonoCode Nerd Font Mono"
 style = "Regular"
+
+[fonts.bold]
+family = "VulfMonoCode Nerd Font Mono"
+style = "Bold"
 
 [fonts.italic]
 family = "VulfMonoCode Nerd Font Mono"
